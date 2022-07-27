@@ -7,13 +7,15 @@
     <meta name="keywords" content="Anime, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Anime | Template</title>
-
+    <title>Kênh Hoạt Hình | ZendVN.com </title>
+    <link rel="icon" href="../0 - PROJECT Anime/img/icon-logo.png" type="image/icon type">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -45,20 +47,25 @@
                 <div class="col-lg-8">
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
-                            <ul>
-                                <li><a href="./index.html">Homepage</a></li>
-                                <li><a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
+                            <ul class="row">
+                                <li class="col-lg-2"><a href="./index.html">Trang Chủ</a></li>
+                                <li class="col-lg-2"><a href="./index.html">Tất Cả</a></li>
+                                <li class="col-lg-2">
+                                    <a href="#">Thể Loại</a>
                                     <ul class="dropdown">
-                                        <li><a href="./categories.html">Categories</a></li>
-                                        <li><a href="./anime-details.html">Anime Details</a></li>
-                                        <li><a href="./anime-watching.html">Anime Watching</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
-                                        <li><a href="./signup.html">Sign Up</a></li>
-                                        <li><a href="./login.html">Login</a></li>
+                                        <li><a href="./vietnam.html">Hoạt Hình Việt Nam</a></li>
+                                        <li><a href="./donghua.html">Hoạt Hình Trung Quốc</a></li>
+                                        <li><a href="./anime.html">Hoạt Hình Nhật Bản</a></li>
+                                        <li><a href="./cartoon.html">Hoạt Hình Âu Mỹ</a></li>
                                     </ul>
                                 </li>
-                                <li class="active"><a href="./blog.html">Our Blog</a></li>
-                                <li><a href="#">Contacts</a></li>
+                                <li class="col-lg-2"><a href="./categories.html">Yêu Thích</a></li>
+                                <li class="col-lg-2"><a href="./anime-watching.html">Đang Xem</a></li>
+                                <li class="col-lg-2 active"><a href="./blog.html">Tin Tức</a>
+                                    <ul class="dropdown" role="menu" aria-hidden="false" id="api-area-category-news">
+                                        <!--callapi-->
+                                    </ul>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -66,7 +73,6 @@
                 <div class="col-lg-2">
                     <div class="header__right">
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="./login.html"><span class="icon_profile"></span></a>
                     </div>
                 </div>
             </div>
@@ -76,13 +82,13 @@
     <!-- Header End -->
 
     <!-- Normal Breadcrumb Begin -->
-    <section class="normal-breadcrumb set-bg" data-setbg="img/normal-breadcrumb.jpg">
+    <section class="normal-breadcrumb set-bg" data-setbg="img/normal-breadcrumb.png">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="normal__breadcrumb__text">
-                        <h2>Our Blog</h2>
-                        <p>Welcome to the official Anime blog.</p>
+                        <h2>Tin Tức</h2>
+                        <p>Tổng hợp những bài báo mới nhất</p>
                     </div>
                 </div>
             </div>
@@ -91,34 +97,42 @@
     <!-- Normal Breadcrumb End -->
 
     <!-- Blog Section Begin -->
-    <section class="blog spad">
-        <div class="container" id="zvn-blog-items">
-            <div class="row text-light">
-                <div class="col-sm-4 grid-margin">
-                    <div class="position-relative">
-                        <div class="rotate-img">
-                            <img src="assets/images/dashboard/home_4.jpg" alt="thumb" class="img-fluid">
-                        </div>
-                        <div class="badge-positioned">
-                            <span class="badge badge-danger font-weight-bold ">Flash news</span>
-                        </div>
+    <section class="blog spad" >
+        <div class="container">
+            <ul class="row" style="list-style: none;">
+                <li class="col-lg-8 col-md-12 col-xs-12">
+                    <div class="container" id="news-items">
+                        //call api small news
                     </div>
-                </div>
-                <div class="col-sm-8  grid-margin">
-                    <h2 class="mb-2 font-weight-600 text-light">
-                        South Korea’s Moon Jae-in sworn in vowing to address
-                        North
-                    </h2>
-                    <div class="fs-13 mb-2">
-                        <span class="mr-2">Photo </span>10 Minutes ago
-                    </div>
-                    <p class="mb-0">
-                        Lorem Ipsum has been the industry's standard dummy
-                        text ever since the 1500s, when an
-                    </p>
-                </div>
-            </div>
+                </li>
+                <li class="col-lg-4 col-md-12 col-xs-12">
+                    <ul class="row" style="list-style: none;">
+                        <li class="col-lg-12 col-md-6 col-xs-6">
+                            <h2 style="text-align: center;" class="text-light">BẢNG GIÁ VÀNG</h2>
+                            <table id="tableGoldPriceImport" class="wp-table">
+                                    <tr>
+                                        <th>Loại vàng</th>
+                                        <th>Mua vào</th>
+                                        <th>Bán ra</th>
+                                    </tr>
+                            </table>
+                        </li>
 
+                        <li class="col-lg-12 col-md-6 col-xs-6" style="margin-top: 20px;">
+                            <h2 style="text-align: center;" class="text-light">BẢNG GIÁ COIN</h2>
+                            <table id="tableCoinPriceImport" class="wp-table">
+                                    <tr>
+                                        <th>Loại Coin</th>
+                                        <th>Giá</th>
+                                        <th>1 giờ</th>
+                                        <th>24 giờ</th>
+                                    </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </li>
+
+                </div>
         </div>
     </section>
     <!-- Blog Section End -->
@@ -138,28 +152,66 @@
                 <div class="col-lg-6">
                     <div class="footer__nav">
                         <ul>
-                            <li class="active"><a href="./index.html">Homepage</a></li>
-                            <li><a href="./categories.html">Categories</a></li>
-                            <li><a href="./blog.html">Our Blog</a></li>
-                            <li><a href="#">Contacts</a></li>
+                            <li class="active"><a href="./index.html">Trang Chủ</a></li>
+                            <li><a href="./categories.html">Tất Cả</a></li>
+                            <li><a href="./categories.html">Thể Loại</a></li>
+                            <li><a href="./categories.html">Yêu Thích</a></li>
+                            <li><a href="./anime-watching.html">Đang Xem</a></li>
+                            <li><a href="./blog.html">Tin tức</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
-                        is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                            target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
+
+                    <footer class="text-center text-white">
+                        <!-- Grid container -->
+                        <div class="container">
+                            <!-- Section: Social media -->
+                            <section>
+                                <!-- Facebook -->
+                                <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#!"
+                                    role="button"><i class="fab fa-facebook-f"></i></a>
+
+                                <!-- Twitter -->
+                                <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#!"
+                                    role="button"><i class="fab fa-twitter"></i></a>
+
+                                <!-- Google -->
+                                <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39;" href="#!"
+                                    role="button"><i class="fab fa-google"></i></a>
+
+                                <!-- Instagram -->
+                                <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#!"
+                                    role="button"><i class="fab fa-instagram"></i></a>
+
+                                <!-- Linkedin -->
+                                <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca;" href="#!"
+                                    role="button"><i class="fab fa-linkedin-in"></i></a>
+                                <!-- Github -->
+                                <a class="btn btn-primary btn-floating m-1" style="background-color: #333333;" href="#!"
+                                    role="button"><i class="fab fa-github"></i></a>
+                            </section>
+                            <!-- Section: Social media -->
+                        </div>
+                        <!-- Grid container -->
+                    </footer>
 
                 </div>
             </div>
         </div>
     </footer>
     <!-- Footer Section End -->
+
+    <!-- Search model Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch"><i class="icon_close"></i></div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
 
     <!-- Search model Begin -->
     <div class="search-model">
@@ -180,8 +232,10 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
+    <script src="js/defined.js"></script>
+    <script src="js/libs.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/zendapi/main.js"></script>
+    <script src="js/callapi/main.js"></script>
 
 </body>
 
