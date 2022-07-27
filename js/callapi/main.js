@@ -53,7 +53,7 @@ if (paramID === null) {
                 <div class="col-sm-4 grid-margin">
                     <div class="position-relative">
                         <div class="rotate-img">
-                        <a href="blog/blog-detail.html?id=${val.id}"><img src="`+ val.thumb + `" alt="thumb" class="img-fluid"></a>
+                            <a href="blog/blog-detail.html?id=${val.id}"><img src="`+ val.thumb + `" alt="thumb" class="img-fluid"></a>
                         </div>
                         <div class="badge-positioned newsHightLight">
                             <span class="badge badge-danger font-weight-bold ">Tin Mới</span>
