@@ -1,4 +1,8 @@
 $(window).on('load', function () {
+// them id cho menu mobile
+
+$('#mobile-menu-wrap .row li ul.dropdown').attr("id", "api-area-category-news");
+
 //Lấy danh sách category 
 $.getJSON(API_PREFIX + "categories_news", function (data) {
     let xhtml = '';
@@ -13,7 +17,6 @@ let paramID = $.urlParam('id')
 if (paramID === null) {
     $.getJSON(API_PREFIX + "articles", function (data) {
         let xhtml = '';
-        console.log(data)
         $.each(data, function (key, val) {
             console.log(val.title)
             xhtml += `<div class="row text-light mb-4">
@@ -29,16 +32,16 @@ if (paramID === null) {
                 </div>
                 <div class="col-sm-8 grid-margin">
                     <a href="blog-details.html?id=${val.id}">
-                        <h2 class="mb-2 font-weight-800 text-light">
+                        <h4 class="mb-2 font-weight-800 text-light">
                         `+ val.title + `
-                        </h2>
+                        </h4>
                     </a>
                     <div class="fs-13 mb-2">
-                        <span class="mr-2 font-weight-bold bg-danger">`+ val.category.name + ` </span>` + val.publish_date + `
+                        <span class="mr-2 font-weight-bold bg-danger">`+ val.category.name + ` </span>` + val.publish_date.split(" ")[0] + `
                     </div>
-                    <p class="mb-0 text-light font-weight-light font-italic">
+                    <h6 class="mb-0 text-light font-weight-light font-italic">
                     `+ val.description + `
-                    </p>
+                    </h6>
                 </div>
             </div>`;
         });
@@ -62,16 +65,16 @@ if (paramID === null) {
                 </div>
                 <div class="col-sm-8  grid-margin">
                     <a href="blog-details.html?id=${val.id}">
-                        <h2 class="mb-2 font-weight-800 text-light">
+                        <h4 class="mb-2 font-weight-800 text-light">
                         `+ val.title + `
-                        </h2>
+                        </h4>
                     </a>
                     <div class="fs-13 mb-2">
-                        <span class="mr-2 font-weight-bold bg-danger">`+ val.category.name + ` </span>` + val.publish_date + `
+                        ` + val.publish_date.split(" ")[0] + `
                     </div>
-                    <p class="mb-0 text-light font-weight-light font-italic">
+                    <h6 class="mb-0 text-light font-weight-light font-italic">
                     `+ val.description + `
-                    </p>
+                    </h6>
                 </div>
             </div>`;
         });
