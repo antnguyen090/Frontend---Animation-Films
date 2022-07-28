@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(window).on('load', function () {
 //Lấy danh sách category 
 $.getJSON(API_PREFIX + "categories_news", function (data) {
     let xhtml = '';
@@ -20,7 +20,7 @@ if (paramID === null) {
                 <div class="col-sm-4 grid-margin">
                     <div class="position-relative">
                         <div class="rotate-img">
-                        <a href="blog/blog-detail.html?id=${val.id}"><img src="`+ val.thumb + `" alt="thumb" class="img-fluid"></a>
+                        <a href="blog-details.html?id=${val.id}"><img src="`+ val.thumb + `" alt="thumb" class="img-fluid"></a>
                         </div>
                         <div class="badge-positioned newsHightLight">
                             <span class="badge badge-danger font-weight-bold ">Tin Mới</span>
@@ -28,7 +28,7 @@ if (paramID === null) {
                     </div>
                 </div>
                 <div class="col-sm-8 grid-margin">
-                    <a href="blog/blog-detail.html?id=${val.id}">
+                    <a href="blog-details.html?id=${val.id}">
                         <h2 class="mb-2 font-weight-800 text-light">
                         `+ val.title + `
                         </h2>
@@ -53,7 +53,7 @@ if (paramID === null) {
                 <div class="col-sm-4 grid-margin">
                     <div class="position-relative">
                         <div class="rotate-img">
-                            <a href="blog/blog-detail.html?id=${val.id}"><img src="`+ val.thumb + `" alt="thumb" class="img-fluid"></a>
+                            <a href="blog-details.html?id=${val.id}"><img src="`+ val.thumb + `" alt="thumb" class="img-fluid"></a>
                         </div>
                         <div class="badge-positioned newsHightLight">
                             <span class="badge badge-danger font-weight-bold ">Tin Mới</span>
@@ -61,7 +61,7 @@ if (paramID === null) {
                     </div>
                 </div>
                 <div class="col-sm-8  grid-margin">
-                    <a href="blog/blog-detail.html?id=${val.id}">
+                    <a href="blog-details.html?id=${val.id}">
                         <h2 class="mb-2 font-weight-800 text-light">
                         `+ val.title + `
                         </h2>

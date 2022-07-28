@@ -15,8 +15,9 @@
         Preloader
     --------------------*/
     $(window).on('load', function () {
-        $(".loader").fadeOut();
-        $("#preloder").delay(200).fadeOut("slow");
+        setTimeout(function(){ // allowing 3 secs to fade out loader
+            $('#preloder').fadeOut('fast');
+            },1500);
 
         /*------------------
             FIlter
