@@ -4,5 +4,6 @@ $(window).on('load', function () {
     showItemsCategory();
     showGoldPrice();
     showCoinPrice();
-
+    showArticleViewed();
+    showArticleDetail();
 });
