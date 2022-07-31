@@ -26,11 +26,6 @@
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
     <!-- Header Section Begin -->
     <header class="header">
         <div class="container">
@@ -45,20 +40,26 @@
                 <div class="col-lg-8">
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
-                            <ul>
-                                <li class="active"><a href="./index.html">Homepage</a></li>
-                                <li><a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
+                            <ul class="row">
+                                <li class="col-lg-2 "><a href="./index.html">Trang Chủ</a></li>
+                                <li class="col-lg-2"><a href="./all.html">Tất Cả</a></li>
+                                <li class="col-lg-2">
+                                    <a href="./categories.html">Thể Loại</a>
                                     <ul class="dropdown">
-                                        <li><a href="./categories.html">Categories</a></li>
-                                        <li><a href="./anime-details.html">Anime Details</a></li>
-                                        <li><a href="./anime-watching.html">Anime Watching</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
-                                        <li><a href="./signup.html">Sign Up</a></li>
-                                        <li><a href="./login.html">Login</a></li>
+                                        <li><a href="./categories.html?category=vietnam">Hoạt Hình Việt Nam</a></li>
+                                        <li><a href="./categories.html?category=donghua">Hoạt Hình Trung Quốc</a></li>
+                                        <li><a href="./categories.html?category=anime">Hoạt Hình Nhật Bản</a></li>
+                                        <li><a href="./categories.html?category=cartoon">Hoạt Hình Âu Mỹ</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="./blog.html">Our Blog</a></li>
-                                <li><a href="#">Contacts</a></li>
+                                <li class="col-lg-2"><a href="./love.html">Yêu Thích</a></li>
+                                <li class="col-lg-2"><a href="./anime-watching.html?watching=1">Đang Xem</a></li>
+                                <li class="col-lg-2">
+                                    <a href="./blog.html">Tin Tức</a>
+                                    <ul class="dropdown" id="api-area-category-news">
+                                        <!--callapi-->
+                                    </ul>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -66,7 +67,6 @@
                 <div class="col-lg-2">
                     <div class="header__right">
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="./login.html"><span class="icon_profile"></span></a>
                     </div>
                 </div>
             </div>
@@ -122,7 +122,8 @@
                                 their body. For Hina’s mother, her total drops to 0 and she’s pulled into the Abyss,
                                 never to be seen again. But her mother’s last words send Hina on a quest to find a
                             legendary hero from the Waste War - the fabled Ace!</p>
-                            <div class="anime__details__widget">
+                            
+                            <!-- <div class="anime__details__widget">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                         <ul>
@@ -143,94 +144,22 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="anime__details__btn">
-                                <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
-                                <a href="#" class="watch-btn"><span>Watch Now</span> <i
+                                <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> THÍCH</a>
+                                <a href="#" class="watch-btn"><span>XEM NGAY</span> <i
                                     class="fa fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="section-title">
+                    <h4>ĐỀ XUẤT</h4>
+                </div>
                 <div class="row">
-                    <div class="col-lg-8 col-md-8">
-                        <div class="anime__details__review">
-                            <div class="section-title">
-                                <h5>Reviews</h5>
-                            </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="img/anime/review-1.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Chris Curry - <span>1 Hour ago</span></h6>
-                                    <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                    "demons" LOL</p>
-                                </div>
-                            </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="img/anime/review-2.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Lewis Mann - <span>5 Hour ago</span></h6>
-                                    <p>Finally it came out ages ago</p>
-                                </div>
-                            </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="img/anime/review-3.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Louis Tyler - <span>20 Hour ago</span></h6>
-                                    <p>Where is the episode 15 ? Slow update! Tch</p>
-                                </div>
-                            </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="img/anime/review-4.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Chris Curry - <span>1 Hour ago</span></h6>
-                                    <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                    "demons" LOL</p>
-                                </div>
-                            </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="img/anime/review-5.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Lewis Mann - <span>5 Hour ago</span></h6>
-                                    <p>Finally it came out ages ago</p>
-                                </div>
-                            </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="img/anime/review-6.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Louis Tyler - <span>20 Hour ago</span></h6>
-                                    <p>Where is the episode 15 ? Slow update! Tch</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="anime__details__form">
-                            <div class="section-title">
-                                <h5>Your Comment</h5>
-                            </div>
-                            <form action="#">
-                                <textarea placeholder="Your Comment"></textarea>
-                                <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
+                    <div class="col-4 col-lg-4 col-md-4">
                         <div class="anime__details__sidebar">
-                            <div class="section-title">
-                                <h5>you might like...</h5>
-                            </div>
                             <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-1.jpg">
                                 <div class="ep">18 / ?</div>
                                 <div class="view"><i class="fa fa-eye"></i> 9141</div>
@@ -246,13 +175,47 @@
                                 <div class="view"><i class="fa fa-eye"></i> 9141</div>
                                 <h5><a href="#">Sword art online alicization war of underworld</a></h5>
                             </div>
-                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-4.jpg">
+                        </div>
+                    </div>
+                    <div class="col-4 col-lg-4 col-md-4">
+                        <div class="anime__details__sidebar">
+                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-1.jpg">
                                 <div class="ep">18 / ?</div>
                                 <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">Fate/stay night: Heaven's Feel I. presage flower</a></h5>
+                                <h5><a href="#">Boruto: Naruto next generations</a></h5>
+                            </div>
+                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-2.jpg">
+                                <div class="ep">18 / ?</div>
+                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
+                            </div>
+                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-3.jpg">
+                                <div class="ep">18 / ?</div>
+                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                <h5><a href="#">Sword art online alicization war of underworld</a></h5>
                             </div>
                         </div>
                     </div>
+                    <div class="col-4 col-lg-4 col-md-4">
+                        <div class="anime__details__sidebar">
+                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-1.jpg">
+                                <div class="ep">18 / ?</div>
+                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                <h5><a href="#">Boruto: Naruto next generations</a></h5>
+                            </div>
+                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-2.jpg">
+                                <div class="ep">18 / ?</div>
+                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
+                            </div>
+                            <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-3.jpg">
+                                <div class="ep">18 / ?</div>
+                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                <h5><a href="#">Sword art online alicization war of underworld</a></h5>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -272,23 +235,42 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="footer__nav">
-                            <ul>
-                                <li class="active"><a href="./index.html">Homepage</a></li>
-                                <li><a href="./categories.html">Categories</a></li>
-                                <li><a href="./blog.html">Our Blog</a></li>
-                                <li><a href="#">Contacts</a></li>
+                            <ul class="mt-4">
+                                <li><a href="./index.html">Trang Chủ</a></li>
+                                <li><a href="./categories.html?category=all">Tất Cả</a></li>
+                                <li><a href="./categories.html">Thể Loại</a></li>
+                                <li><a href="./categories.html?lovelist=1">Yêu Thích</a></li>
+                                <li><a href="./anime-watching.html?watching=1">Đang Xem</a></li>
+                                <li><a href="./blog.html">Tin tức</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-
-                      </div>
-                  </div>
-              </div>
-          </footer>
+    
+                        <footer class="text-center text-white">
+                            <!-- Grid container -->
+                            <div class="container">
+                                <!-- Section: Social media -->
+                                <section>
+                                    <!-- Facebook -->
+                                    <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#!"
+                                        role="button"><i class="fab fa-facebook-f"></i></a>
+                                    <!-- Instagram -->
+                                    <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#!"
+                                        role="button"><i class="fab fa-instagram"></i></a>
+                                    <!-- Github -->
+                                    <a class="btn btn-primary btn-floating m-1" style="background-color: #333333;" href="#!"
+                                        role="button"><i class="fab fa-github"></i></a>
+                                </section>
+                                <!-- Section: Social media -->
+                            </div>
+                            <!-- Grid container -->
+                        </footer>
+    
+                    </div>
+                </div>
+            </div>
+        </footer>
           <!-- Footer Section End -->
 
           <!-- Search model Begin -->
