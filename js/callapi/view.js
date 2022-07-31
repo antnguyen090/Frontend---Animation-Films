@@ -33,7 +33,7 @@ if (paramID === null) {
                         </h4>
                     </a>
                     <div class="fs-13 mb-2">
-                        <span class="badge badge-primary font-weight-bold mr-2">`+ val.category.name + ` </span>` + val.publish_date.split(" ")[0] + `<a href="javascript:void(0);" onClick="funcLove('news');"><span class="badge badge-danger font-weight-bold loveItems" data-type="news"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Yêu Thích</span></a>
+                        <span class="badge badge-primary font-weight-bold mr-2">`+ val.category.name + ` </span>` + val.publish_date.split(" ")[0] + `<a href="javascript:void(0);" onClick="funcLove('news');"><span class="badge badge-danger font-weight-bold loveItems" data-type="news"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a>
                     </div>
                     <h6 class="mb-0 text-light font-weight-light font-italic">
                     `+ val.description + `
@@ -65,7 +65,7 @@ if (paramID === null) {
                         </h4>
                     </a>
                     <div class="fs-13 mb-2">
-                        ` + val.publish_date.split(" ")[0] + `<a href="javascript:void(0);" onClick="funcLove('news');"><span class="badge badge-danger font-weight-bold loveItems" data-type="news"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Yêu Thích</span></a>
+                        ` + val.publish_date.split(" ")[0] + `<a href="javascript:void(0);" onClick="funcLove('news');"><span class="badge badge-danger font-weight-bold loveItems" data-type="news"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a>
                     </div>
                     <h6 class="mb-0 text-light font-weight-light font-italic"> 
                     `+ val.description + `
