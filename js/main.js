@@ -17,7 +17,7 @@
     $(window).on('load', function () {
         setTimeout(function(){ // allowing 3 secs to fade out loader
             $('#preloder').fadeOut('fast');
-            },1500);
+            },1000);
 
         /*------------------
             FIlter

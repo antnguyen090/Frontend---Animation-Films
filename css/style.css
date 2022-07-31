@@ -761,26 +761,39 @@ ol {
 	border-radius: 4px;
 	position: absolute;
 	right: 10px;
+	top: 10px;
+}
+
+.product__item__pic .category{
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+}
+
+.product__item__pic .love{
+	position: absolute;
+	right: 10px;
 	bottom: 10px;
 }
 
 .product__item__text {
-	padding-top: 20px;
+	padding-top: 5px;
 }
 
 .product__item__text ul {
-	margin-bottom: 10px;
+	
 }
 
 .product__item__text ul li {
 	list-style: none;
-	font-size: 10px;
+	font-size: 12px;
 	color: #ffffff;
 	font-weight: 700;
-	padding: 1px 10px;
-	background: #013d4a;
 	border-radius: 50px;
-	display: inline-block;
+}
+
+.product__item__text h5 {
+	text-align: center;
 }
 
 .product__item__text h5 a {
@@ -1500,20 +1513,21 @@ ol {
 -----------------------*/
 
 .wp-table tr:nth-child(odd) {
-    background-color: #fff;
+    background-color: #013d4a
 }
 
 .wp-table tr:nth-child(even) {
-    background-color: #f1f1f1;
+    background-color: #013d4a;
 }
 
-.wp-table tr {
-    border-bottom: 1px solid #ddd;
+#tableGoldPriceImport th {
+
 }
 
 .wp-table th:first-child, 
 .wp-table td:first-child {
  padding: 10px 10px;
+ font-style: italic;
 }
 
 
@@ -1531,18 +1545,31 @@ ol {
  
 .wp-table {
     font-size: 13px!important;
-    border: 1px solid #ccc;
+    border: 5px solid #013d4a;
+	border-radius: 10px;
     border-collapse: collapse;
     border-spacing: 0;
     display: table;
-	width: 100%;
-	margin-right: 30px;
-	margin-top: 5px;
+    width: 100%;
+    margin-right: 30px;
+    margin-top: 5px;
+    color: white;
+    background-color: transparent;
+    font-weight: 900;
 }
 
 /*---------------------
   Blog Details
 -----------------------*/
+.loveItems{
+	float: right;
+	padding: 10px;
+}
+
+.loveItemsMovie{
+	padding: 6px 10px;
+	max-width: 67px;
+}
 
 .blog-details {
 	padding-top: 70px;

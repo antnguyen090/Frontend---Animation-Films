@@ -3,17 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Anime Template">
-    <meta name="keywords" content="Anime, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Anime | Template</title>
-
+    <title>Kênh Hoạt Hình | ZendVN.com </title>
+    <link rel="icon" href="./img/icon-logo.png" type="image/icon type">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -26,10 +26,6 @@
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
 
     <!-- Header Section Begin -->
     <header class="header">
@@ -45,20 +41,26 @@
                 <div class="col-lg-8">
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
-                            <ul>
-                                <li class="active"><a href="./index.html">Homepage</a></li>
-                                <li><a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
+                            <ul class="row">
+                                <li class="col-lg-2 active"><a href="./index.html">Trang Chủ</a></li>
+                                <li class="col-lg-2"><a href="./categories.html?category=all">Tất Cả</a></li>
+                                <li class="col-lg-2">
+                                    <a href="./categories.html">Thể Loại</a>
                                     <ul class="dropdown">
-                                        <li><a href="./categories.html">Categories</a></li>
-                                        <li><a href="./anime-details.html">Anime Details</a></li>
-                                        <li><a href="./anime-watching.html">Anime Watching</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
-                                        <li><a href="./signup.html">Sign Up</a></li>
-                                        <li><a href="./login.html">Login</a></li>
+                                        <li><a href="./categories.html?category=vietnam">Hoạt Hình Việt Nam</a></li>
+                                        <li><a href="./categories.html?category=donghua">Hoạt Hình Trung Quốc</a></li>
+                                        <li><a href="./categories.html?category=anime">Hoạt Hình Nhật Bản</a></li>
+                                        <li><a href="./categories.html?category=cartoon">Hoạt Hình Âu Mỹ</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="./blog.html">Our Blog</a></li>
-                                <li><a href="#">Contacts</a></li>
+                                <li class="col-lg-2"><a href="./categories.html?lovelist=1">Yêu Thích</a></li>
+                                <li class="col-lg-2"><a href="./anime-watching.html?watching=1">Đang Xem</a></li>
+                                <li class="col-lg-2">
+                                    <a href="./blog.html">Tin Tức</a>
+                                    <ul class="dropdown" id="api-area-category-news">
+                                        <!--callapi-->
+                                    </ul>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -66,7 +68,6 @@
                 <div class="col-lg-2">
                     <div class="header__right">
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="./login.html"><span class="icon_profile"></span></a>
                     </div>
                 </div>
             </div>
@@ -106,7 +107,7 @@
                     </div>
                     <div class="anime__details__episodes">
                         <div class="section-title">
-                            <h5>List Name</h5>
+                            <h5>Danh sách tập</h5>
                         </div>
                         <a href="#">Ep 01</a>
                         <a href="#">Ep 02</a>
@@ -134,73 +135,9 @@
                 <div class="col-lg-8">
                     <div class="anime__details__review">
                         <div class="section-title">
-                            <h5>Reviews</h5>
+                            <h5>Đề xuất</h5>
                         </div>
-                        <div class="anime__review__item">
-                            <div class="anime__review__item__pic">
-                                <img src="img/anime/review-1.jpg" alt="">
-                            </div>
-                            <div class="anime__review__item__text">
-                                <h6>Chris Curry - <span>1 Hour ago</span></h6>
-                                <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                "demons" LOL</p>
-                            </div>
-                        </div>
-                        <div class="anime__review__item">
-                            <div class="anime__review__item__pic">
-                                <img src="img/anime/review-2.jpg" alt="">
-                            </div>
-                            <div class="anime__review__item__text">
-                                <h6>Lewis Mann - <span>5 Hour ago</span></h6>
-                                <p>Finally it came out ages ago</p>
-                            </div>
-                        </div>
-                        <div class="anime__review__item">
-                            <div class="anime__review__item__pic">
-                                <img src="img/anime/review-3.jpg" alt="">
-                            </div>
-                            <div class="anime__review__item__text">
-                                <h6>Louis Tyler - <span>20 Hour ago</span></h6>
-                                <p>Where is the episode 15 ? Slow update! Tch</p>
-                            </div>
-                        </div>
-                        <div class="anime__review__item">
-                            <div class="anime__review__item__pic">
-                                <img src="img/anime/review-4.jpg" alt="">
-                            </div>
-                            <div class="anime__review__item__text">
-                                <h6>Chris Curry - <span>1 Hour ago</span></h6>
-                                <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                "demons" LOL</p>
-                            </div>
-                        </div>
-                        <div class="anime__review__item">
-                            <div class="anime__review__item__pic">
-                                <img src="img/anime/review-5.jpg" alt="">
-                            </div>
-                            <div class="anime__review__item__text">
-                                <h6>Lewis Mann - <span>5 Hour ago</span></h6>
-                                <p>Finally it came out ages ago</p>
-                            </div>
-                        </div>
-                        <div class="anime__review__item">
-                            <div class="anime__review__item__pic">
-                                <img src="img/anime/review-6.jpg" alt="">
-                            </div>
-                            <div class="anime__review__item__text">
-                                <h6>Louis Tyler - <span>20 Hour ago</span></h6>
-                                <p>Where is the episode 15 ? Slow update! Tch</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="anime__details__form">
-                        <div class="section-title">
-                            <h5>Your Comment</h5>
-                        </div>
-                        <form action="#">
-                            <textarea placeholder="Your Comment"></textarea>
-                            <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
-                        </form>
+                       ĐỀ XUẤT 
                     </div>
                 </div>
             </div>
@@ -222,27 +159,46 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="footer__nav">
-                        <ul>
-                            <li class="active"><a href="./index.html">Homepage</a></li>
-                            <li><a href="./categories.html">Categories</a></li>
-                            <li><a href="./blog.html">Our Blog</a></li>
-                            <li><a href="#">Contacts</a></li>
+                        <ul class="mt-4">
+                            <li><a href="./index.html">Trang Chủ</a></li>
+                            <li><a href="./categories.html?category=all">Tất Cả</a></li>
+                            <li><a href="./categories.html">Thể Loại</a></li>
+                            <li><a href="./categories.html?lovelist=1">Yêu Thích</a></li>
+                            <li><a href="./anime-watching.html?watching=1">Đang Xem</a></li>
+                            <li><a href="./blog.html">Tin tức</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                      Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 
-                  </div>
-              </div>
-          </div>
-      </footer>
-      <!-- Footer Section End -->
+                    <footer class="text-center text-white">
+                        <!-- Grid container -->
+                        <div class="container">
+                            <!-- Section: Social media -->
+                            <section>
+                                <!-- Facebook -->
+                                <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#!"
+                                    role="button"><i class="fab fa-facebook-f"></i></a>
+                                <!-- Instagram -->
+                                <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#!"
+                                    role="button"><i class="fab fa-instagram"></i></a>
+                                <!-- Github -->
+                                <a class="btn btn-primary btn-floating m-1" style="background-color: #333333;" href="#!"
+                                    role="button"><i class="fab fa-github"></i></a>
+                            </section>
+                            <!-- Section: Social media -->
+                        </div>
+                        <!-- Grid container -->
+                    </footer>
 
-      <!-- Search model Begin -->
-      <div class="search-model">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search model Begin -->
+    <div class="search-model">
         <div class="h-100 d-flex align-items-center justify-content-center">
             <div class="search-close-switch"><i class="icon_close"></i></div>
             <form class="search-model-form">
@@ -251,7 +207,8 @@
         </div>
     </div>
     <!-- Search model end -->
-
+    <!-- load iframe none -->
+    
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -260,7 +217,14 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
+    <script src="js/callapi/defined.js"></script>
+    <script src="js/callapi/libs.js"></script>
+    <script src="js/callapi/model.js"></script>
+    <script src="js/callapi/view.js"></script>
+    <script src="js/callapi/event.js"></script>
+    <script src="js/callapi/main.js"></script>
     <script src="js/main.js"></script>
+
 
 </body>
 

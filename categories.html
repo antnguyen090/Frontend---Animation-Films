@@ -3,17 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Anime Template">
-    <meta name="keywords" content="Anime, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Anime | Template</title>
-
+    <title>Kênh Hoạt Hình | ZendVN.com </title>
+    <link rel="icon" href="./img/icon-logo.png" type="image/icon type">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -26,11 +26,6 @@
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
     <!-- Header Section Begin -->
     <header class="header">
         <div class="container">
@@ -45,20 +40,26 @@
                 <div class="col-lg-8">
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
-                            <ul>
-                                <li class="active"><a href="./index.html">Homepage</a></li>
-                                <li><a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
+                            <ul class="row">
+                                <li class="col-lg-2 "><a href="./index.html">Trang Chủ</a></li>
+                                <li class="col-lg-2"><a href="./index.html">Tất Cả</a></li>
+                                <li class="col-lg-2">
+                                    <a href="#">Thể Loại</a>
                                     <ul class="dropdown">
-                                        <li><a href="./categories.html">Categories</a></li>
-                                        <li><a href="./anime-details.html">Anime Details</a></li>
-                                        <li><a href="./anime-watching.html">Anime Watching</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
-                                        <li><a href="./signup.html">Sign Up</a></li>
-                                        <li><a href="./login.html">Login</a></li>
+                                        <li><a href="./vietnam.html">Hoạt Hình Việt Nam</a></li>
+                                        <li><a href="./donghua.html">Hoạt Hình Trung Quốc</a></li>
+                                        <li><a href="./anime.html">Hoạt Hình Nhật Bản</a></li>
+                                        <li><a href="./cartoon.html">Hoạt Hình Âu Mỹ</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="./blog.html">Our Blog</a></li>
-                                <li><a href="#">Contacts</a></li>
+                                <li class="col-lg-2"><a href="./categories.html">Yêu Thích</a></li>
+                                <li class="col-lg-2"><a href="./anime-watching.html">Đang Xem</a></li>
+                                <li class="col-lg-2">
+                                    <a href="./blog.html">Tin Tức</a>
+                                    <ul class="dropdown" id="api-area-category-news">
+                                        <!--callapi-->
+                                    </ul>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -66,7 +67,6 @@
                 <div class="col-lg-2">
                     <div class="header__right">
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="./login.html"><span class="icon_profile"></span></a>
                     </div>
                 </div>
             </div>

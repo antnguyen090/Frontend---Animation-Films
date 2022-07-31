@@ -13,7 +13,6 @@ funcArticleViewed = (id, title, thumb, link) => {
 }
 
 funcRemoveArticleViewd = (id) => {
-    console.log("testreomove"+id)
     let items = listItems('ARTICLE_VIEWED');
     items = $.grep(items, function(e){ 
         return e.id != id; 

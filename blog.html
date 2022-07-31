@@ -3,12 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Anime Template">
-    <meta name="keywords" content="Anime, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kênh Hoạt Hình | ZendVN.com </title>
-    <link rel="icon" href="../0 - PROJECT Anime/img/icon-logo.png" type="image/icon type">
+    <link rel="icon" href="./img/icon-logo.png" type="image/icon type">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
@@ -44,21 +42,22 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul class="row">
-                                <li class="col-lg-2" ><a  href="./index.html">Trang Chủ</a></li>
-                                <li class="col-lg-2"><a href="./index.html">Tất Cả</a></li>
+                                <li class="col-lg-2"><a href="./index.html">Trang Chủ</a></li>
+                                <li class="col-lg-2"><a href="./categories.html?category=all">Tất Cả</a></li>
                                 <li class="col-lg-2">
-                                    <a href="#">Thể Loại</a>
+                                    <a href="./categories.html">Thể Loại</a>
                                     <ul class="dropdown">
-                                        <li><a href="./vietnam.html">Hoạt Hình Việt Nam</a></li>
-                                        <li><a href="./donghua.html">Hoạt Hình Trung Quốc</a></li>
-                                        <li><a href="./anime.html">Hoạt Hình Nhật Bản</a></li>
-                                        <li><a href="./cartoon.html">Hoạt Hình Âu Mỹ</a></li>
+                                        <li><a href="./categories.html?category=vietnam">Hoạt Hình Việt Nam</a></li>
+                                        <li><a href="./categories.html?category=donghua">Hoạt Hình Trung Quốc</a></li>
+                                        <li><a href="./categories.html?category=anime">Hoạt Hình Nhật Bản</a></li>
+                                        <li><a href="./categories.html?category=cartoon">Hoạt Hình Âu Mỹ</a></li>
                                     </ul>
                                 </li>
-                                <li class="col-lg-2"><a href="./categories.html">Yêu Thích</a></li>
-                                <li class="col-lg-2"><a href="./anime-watching.html">Đang Xem</a></li>
-                                <li class="col-lg-2 active"><a href="./blog.html">Tin Tức</a>
-                                    <ul class="dropdown" role="menu" aria-hidden="false" id="api-area-category-news">
+                                <li class="col-lg-2"><a href="./categories.html?lovelist=1">Yêu Thích</a></li>
+                                <li class="col-lg-2"><a href="./anime-watching.html?watching=1">Đang Xem</a></li>
+                                <li class="col-lg-2 active">
+                                    <a href="./blog.html">Tin Tức</a>
+                                    <ul class="dropdown" id="api-area-category-news">
                                         <!--callapi-->
                                     </ul>
                                 </li>
@@ -148,55 +147,40 @@
                     <div class="footer__nav">
                         <ul class="mt-4">
                             <li><a href="./index.html">Trang Chủ</a></li>
-                            <li><a href="./categories.html">Tất Cả</a></li>
+                            <li><a href="./categories.html?category=all">Tất Cả</a></li>
                             <li><a href="./categories.html">Thể Loại</a></li>
-                            <li><a href="./categories.html">Yêu Thích</a></li>
-                            <li ><a href="./anime-watching.html">Đang Xem</a></li>
+                            <li><a href="./categories.html?lovelist=1">Yêu Thích</a></li>
+                            <li><a href="./anime-watching.html?watching=1">Đang Xem</a></li>
                             <li><a href="./blog.html">Tin tức</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3">
-    
+
                     <footer class="text-center text-white">
                         <!-- Grid container -->
                         <div class="container">
-                          <!-- Section: Social media -->
-                          <section>
-                            <!-- Facebook -->
-                            <a
-                              class="btn btn-primary btn-floating m-1"
-                              style="background-color: #3b5998;"
-                              href="#!"
-                              role="button"
-                              ><i class="fab fa-facebook-f"></i
-                            ></a>
-                            <!-- Instagram -->
-                            <a
-                              class="btn btn-primary btn-floating m-1"
-                              style="background-color: #ac2bac;"
-                              href="#!"
-                              role="button"
-                              ><i class="fab fa-instagram"></i
-                            ></a>
-                            <!-- Github -->
-                            <a
-                              class="btn btn-primary btn-floating m-1"
-                              style="background-color: #333333;"
-                              href="#!"
-                              role="button"
-                              ><i class="fab fa-github"></i
-                            ></a>
-                          </section>
-                          <!-- Section: Social media -->
+                            <!-- Section: Social media -->
+                            <section>
+                                <!-- Facebook -->
+                                <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#!"
+                                    role="button"><i class="fab fa-facebook-f"></i></a>
+                                <!-- Instagram -->
+                                <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#!"
+                                    role="button"><i class="fab fa-instagram"></i></a>
+                                <!-- Github -->
+                                <a class="btn btn-primary btn-floating m-1" style="background-color: #333333;" href="#!"
+                                    role="button"><i class="fab fa-github"></i></a>
+                            </section>
+                            <!-- Section: Social media -->
                         </div>
                         <!-- Grid container -->
-                      </footer>
-                      
-                  </div>
-              </div>
-          </div>
-      </footer>
+                    </footer>
+
+                </div>
+            </div>
+        </div>
+    </footer>
     <!-- Footer Section End -->
 
     <!-- Search model Begin -->
