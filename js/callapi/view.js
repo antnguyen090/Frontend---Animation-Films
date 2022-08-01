@@ -70,8 +70,17 @@ if (paramID === null) {
                         `+ val.title + `
                         </h5>
                     </a>
-                    <div class="fs-13 mb-2">
-                    <i class="fa-solid fa-clock mr-2"></i>` + val.publish_date.split(" ")[0] + `<a href="javascript:void(0);" onClick="funcLove('news');"><span class="badge badge-danger font-weight-bold loveItems" data-type="news"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between times-news">
+                             <i class="fa-solid fa-clock mr-2"></i>
+                             <p class="text-light">` + val.publish_date.split(" ")[0] + `</p>
+                        </div> 
+                       
+                        <a href="javascript:void(0);" onClick="funcLove('news');">
+                             <span class="badge badge-danger font-weight-bold loveItems" data-type="news">
+                                 <i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích
+                            </span>
+                        </a>
                     </div>
                     <p class="mb-0 text-light font-weight-light font-italic"> 
                     `+ val.description + `

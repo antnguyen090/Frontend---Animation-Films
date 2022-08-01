@@ -7,3 +7,4 @@ $(window).on('load', function () {
     showArticleViewed();
     showArticleDetail();
 });
+
