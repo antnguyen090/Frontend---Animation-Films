@@ -13,7 +13,13 @@ showItemsCategory = () => {
 let paramID = $.urlParam('id')
 if (paramID === null) {
     $.getJSON(API_PREFIX + "articles", function (data) {
-        let xhtml = '';
+        let  xhtml = '';
+        xhtml = `
+        <h2>Tin Tức</h2>
+        <p>Tổng hợp những bài báo mới nhất</p>
+        `
+        elmNameCategory.html(xhtml)
+        xhtml='';
         $.each(data, function (key, val) {
             xhtml += `<div class="row text-light mb-4">
                 <div class="col-sm-4 grid-margin">
@@ -21,23 +27,20 @@ if (paramID === null) {
                         <div class="rotate-img">
                         <a onClick="funcArticleViewed('${val.id}','${val.title}','${val.thumb}','${val.link}');" href="blog-details.html?iddetail=${val.id}"><img src="`+ val.thumb + `" alt="thumb" class="img-fluid"></a>
                         </div>
-                        <div class="badge-positioned newsHightLight">
-                            <span class="badge badge-danger font-weight-bold ">Tin Mới</span>
-                        </div>
                     </div>
                 </div>
                 <div class="col-sm-8 grid-margin">
                     <a onClick="funcArticleViewed('${val.id}','${val.title}','${val.thumb}','${val.link}');" href="blog-details.html?iddetail=${val.id}">
-                        <h4 class="mb-2 font-weight-800 text-light">
+                        <h5 class="mb-2 font-weight-bold text-light">
                         `+ val.title + `
-                        </h4>
+                        </h5>
                     </a>
                     <div class="fs-13 mb-2">
-                        <span class="badge badge-primary font-weight-bold mr-2">`+ val.category.name + ` </span>` + val.publish_date.split(" ")[0] + `<a href="javascript:void(0);" onClick="funcLove('news');"><span class="badge badge-danger font-weight-bold loveItems" data-type="news"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a>
+                        <span class="badge badge-primary font-weight-bold mr-2">`+ val.category.name + ` </span><i class="fa-solid fa-clock"></i> ` + val.publish_date.split(" ")[0] + `<a href="javascript:void(0);" onClick="funcLove('news');"><span class="badge badge-danger font-weight-bold loveItems" data-type="news"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a>
                     </div>
-                    <h6 class="mb-0 text-light font-weight-light font-italic">
+                    <p class="mb-0 text-light font-weight-light font-italic">
                     `+ val.description + `
-                    </h6>
+                    </p>
                 </div>
             </div>`;
         });
@@ -46,6 +49,12 @@ if (paramID === null) {
 } else {
     $.getJSON(API_PREFIX + "categories_news/" + paramID + "/articles", function (data) {
         let xhtml = '';
+        xhtml = `
+        <h2>${data[0].category.name}</h2>
+        <p>Tổng hợp những bài báo mới nhất</p>
+        `
+        elmNameCategory.html(xhtml)
+        xhtml='';
         $.each(data, function (key, val) {
             xhtml += `<div class="row text-light mb-4">
                 <div class="col-sm-4 grid-margin">
@@ -53,23 +62,20 @@ if (paramID === null) {
                         <div class="rotate-img">
                             <a onClick="funcArticleViewed('${val.id}','${val.title}','${val.thumb}','${val.link}');" href="blog-details.html?iddetail=${val.id}"><img src="`+ val.thumb + `" alt="thumb" class="img-fluid"></a>
                         </div>
-                        <div class="badge-positioned newsHightLight">
-                            <span class="badge badge-danger font-weight-bold ">Tin Mới</span>
-                        </div>
                     </div>
                 </div>
                 <div class="col-sm-8  grid-margin">
                     <a onClick="funcArticleViewed('${val.id}','${val.title}','${val.thumb}','${val.link}');" href="blog-details.html?iddetail=${val.id}">
-                        <h4 class="mb-2 font-weight-800 text-light">
+                        <h5 class="mb-2 font-weight-bold text-light">
                         `+ val.title + `
-                        </h4>
+                        </h5>
                     </a>
                     <div class="fs-13 mb-2">
-                        ` + val.publish_date.split(" ")[0] + `<a href="javascript:void(0);" onClick="funcLove('news');"><span class="badge badge-danger font-weight-bold loveItems" data-type="news"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a>
+                    <i class="fa-solid fa-clock mr-2"></i>` + val.publish_date.split(" ")[0] + `<a href="javascript:void(0);" onClick="funcLove('news');"><span class="badge badge-danger font-weight-bold loveItems" data-type="news"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a>
                     </div>
-                    <h6 class="mb-0 text-light font-weight-light font-italic"> 
+                    <p class="mb-0 text-light font-weight-light font-italic"> 
                     `+ val.description + `
-                    </h6>
+                    </p>
                 </div>
             </div>`;
         });

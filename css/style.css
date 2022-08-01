@@ -27,7 +27,7 @@ body {
 	height: 100%;
 	font-family: "Mulish", sans-serif;
 	-webkit-font-smoothing: antialiased;
-	background: #21859a;
+	background: #023a4b;
 }
 
 h1,
@@ -368,7 +368,7 @@ ol {
 -----------------------*/
 
 .header {
-	background: #035364;
+	background: #012f39;
     position: fixed;
     z-index: 999;
     width: 100%;
@@ -896,7 +896,7 @@ ol {
 }
 
 .product__sidebar__comment {
-	margin-bottom: 35px;
+	margin-bottom: 10px;
 }
 
 .product__sidebar__comment__item {
@@ -1513,21 +1513,37 @@ ol {
 -----------------------*/
 
 .wp-table tr:nth-child(odd) {
-    background-color: #013d4a
+    background-color: #012f39
 }
 
 .wp-table tr:nth-child(even) {
-    background-color: #013d4a;
+    background-color: #012f39;
 }
 
-#tableGoldPriceImport th {
-
+#tableGoldPriceImport th:first-child{
+	width: 60%;
 }
 
 .wp-table th:first-child, 
 .wp-table td:first-child {
  padding: 10px 10px;
  font-style: italic;
+}
+
+#tableGoldPriceImport th{
+	text-align: justify;
+	font-weight: 900;
+	font-size: 16px;
+	font-style: normal;
+}
+
+
+
+#tableCoinPriceImport th{
+		text-align: justify;
+		font-weight: 900;
+		font-size: 16px;
+		font-style: normal;
 }
 
 
@@ -1545,7 +1561,7 @@ ol {
  
 .wp-table {
     font-size: 13px!important;
-    border: 5px solid #013d4a;
+    border: 1px solid #013d4a;
 	border-radius: 10px;
     border-collapse: collapse;
     border-spacing: 0;
@@ -1554,7 +1570,6 @@ ol {
     margin-right: 30px;
     margin-top: 5px;
     color: white;
-    background-color: transparent;
     font-weight: 900;
 }
 
@@ -2100,7 +2115,7 @@ ol {
 -----------------------*/
 
 .footer {
-	background: #035364;
+	background: #012f39;
     padding-top: 20px;
     padding-bottom: 10px;
 	position: relative;

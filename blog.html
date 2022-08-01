@@ -80,9 +80,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <div class="normal__breadcrumb__text">
-                        <h2>Tin Tức</h2>
-                        <p>Tổng hợp những bài báo mới nhất</p>
+                    <div class="normal__breadcrumb__text" id="api-name-category">
+
                     </div>
                 </div>
             </div>
@@ -101,27 +100,35 @@
                 </li>
                 <li class="col-lg-4 col-md-12 col-xs-12">
                     <ul class="row" style="list-style: none;">
-                        <li class="col-lg-12 col-md-6 col-xs-6">
-                            <h2 style="text-align: center;" class="text-light">BẢNG GIÁ VÀNG</h2>
-                            <table id="tableGoldPriceImport" class="wp-table">
+                        <li class="col-lg-12 col-md-6 col-xs-6 product__sidebar__comment">
+                            <div class="section-title">
+                                <h5>BẢNG GIÁ VÀNG</h5>
+                            </div>
+                            <div class="product__sidebar__comment__item position-relative">
+                                <table id="tableGoldPriceImport" class="wp-table">
                                     <tr>
                                         <th>Loại vàng</th>
                                         <th>Mua vào</th>
                                         <th>Bán ra</th>
                                     </tr>
-                            </table>
+                                </table>
+                            </div>
                         </li>
 
-                        <li class="col-lg-12 col-md-6 col-xs-6" style="margin-top: 20px;">
-                            <h2 style="text-align: center;" class="text-light">BẢNG GIÁ COIN</h2>
-                            <table id="tableCoinPriceImport" class="wp-table">
+                        <li class="col-lg-12 col-md-6 col-xs-6 product__sidebar__comment">
+                            <div class="section-title">
+                                <h5>BẢNG GIÁ COIN</h5>
+                            </div>
+                            <div class="product__sidebar__comment__item position-relative">
+                                <table id="tableCoinPriceImport" class="wp-table">
                                     <tr>
                                         <th>Loại Coin</th>
                                         <th>Giá</th>
                                         <th>1 giờ</th>
                                         <th>24 giờ</th>
                                     </tr>
-                            </table>
+                                </table>
+                            </div>
                         </li>
                     </ul>
                 </li>
