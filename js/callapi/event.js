@@ -8,8 +8,9 @@ funcDeleteTask = (id) => {
 
 
 funcArticleViewed = (id, title, thumb, link) => {
-     let items = addItem(id, title, thumb, link);
+     let items = addItemArticleViewed(id, title, thumb, link);
     // Load lại danh sách
+    showArticleViewed();
 }
 
 funcRemoveArticleViewd = (id) => {
@@ -22,4 +23,19 @@ funcRemoveArticleViewd = (id) => {
    showArticleViewed();
 }
 
+funcLove = (id, title, thumb, link, local ) => {
+    let items = addItemLove(id, title, thumb, link, local);
+    showItemsCategory();
+    showArticleNew();
+   // Load lại danh sách
+}
 
+funcRemoveLove = (id, local) => {
+    let items = listItems(local);
+    items = $.grep(items, function(e){ 
+        return e.id != id; 
+   });
+   saveStorage(local,items);
+   showItemsCategory();
+   showArticleNew();
+}

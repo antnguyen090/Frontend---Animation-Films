@@ -27,11 +27,10 @@ deleteItem = (id) => {
   return items;
 }
 
-addItem = (id, title, thumb, link) => {
+addItemArticleViewed = (id, title, thumb, link) => {
     let taskNew = {id: id, title: title, thumb: thumb, link: link};
     let items = listItems('ARTICLE_VIEWED');
     items.push(taskNew);
-    console.log("item leng"+items.length)
     let uniqueValues = new Set(items.map(v => v.id));
       if (uniqueValues.size < items.length) {
         return;
@@ -41,4 +40,13 @@ addItem = (id, title, thumb, link) => {
         saveStorage('ARTICLE_VIEWED',items);
       }
 }
+
+addItemLove = (id, title, thumb, link,local) => {
+  let taskNew = {id: id, title: title, thumb: thumb, link: link};
+  let items = listItems(local);
+  items.push(taskNew);
+  // Lưu item vào storgare
+  saveStorage(local,items);
+}
+
 

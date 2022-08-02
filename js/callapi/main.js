@@ -6,5 +6,6 @@ $(window).on('load', function () {
     showCoinPrice();
     showArticleViewed();
     showArticleDetail();
+    showArticleNew();
 });
 

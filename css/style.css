@@ -63,7 +63,7 @@ h5 {
 }
 
 h6 {
-	font-size: 16px;
+	font-size: 14px;
 }
 
 p {
@@ -391,7 +391,7 @@ ol {
 }
 
 .header__menu ul > li:hover{
-	background-color: #0fa8c9;
+	background-color: #06768e;
 }
 
 .header__menu ul li {
@@ -401,7 +401,7 @@ ol {
 }
 
 .header__menu ul li.active a {
-	background: #0fa8c9;
+	background:  #06768e;
 	color: #ffffff;
 }
 
@@ -567,7 +567,7 @@ ol {
 .hero__text a span {
 	font-size: 13px;
 	color: #ffffff;
-	background: #3cc4e1;
+	background: #012f39;
 	display: inline-block;
 	font-weight: 700;
 	letter-spacing: 2px;
@@ -580,7 +580,7 @@ ol {
 .hero__text a i {
 	font-size: 20px;
 	display: inline-block;
-	background: #3cc4e1;
+	background: #012f39;
 	padding: 11px 5px 16px 8px;
 	color: #ffffff;
 	border-radius: 0 4px 4px 0;
@@ -642,7 +642,7 @@ ol {
 	font-size: 36px;
 	height: 66px;
 	width: 66px;
-	background: #21859a;
+	background: #012f39;
 	line-height: 66px;
 	text-align: center;
 	color: #ffffff;
@@ -669,14 +669,14 @@ ol {
 	right: 0;
 	height: 54px;
 	width: 54px;
-	background: rgba(60, 196, 225, 1);
+	background: #013d4a;
 	content: "";
 	z-index: -1;
 	margin: 0 auto;
 }
 
 .hero__slider.owl-carousel .owl-nav button:hover::after {
-	background: #013d4a;
+	background: rgba(1, 61, 74, 0.6);
 }
 
 .hero__slider.owl-carousel .owl-nav button span {
@@ -857,17 +857,35 @@ ol {
 	margin-bottom: 20px;
 }
 
-.product__sidebar__view__item .ep {
-	font-size: 13px;
-	color: #ffffff;
-	background: #013d4a;
-	display: inline-block;
-	padding: 2px 12px;
-	border-radius: 4px;
-	position: absolute;
-	left: 10px;
-	top: 10px;
+.filter__gallerys .product__sidebar__view__item .ep {
+    font-size: 13px;
+    color: #ffffff;
+    background: rgba(1, 61, 74, .7);
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 4px;
+    position: absolute;
+    left: 50px;
+    top: 10px;
+    /* transform: translate(-50%, -25%); */
+    font-weight: 700;
+    height: 30px;
 }
+
+.product__sidebar__view__item .ep {
+    font-size: 13px;
+    color: #ffffff;
+    background:rgba(1, 61, 74, .7);
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 4px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -25%);
+	font-weight: 700;
+}
+
 
 .product__sidebar__view__item .view {
 	font-size: 13px;
@@ -879,20 +897,23 @@ ol {
 	position: absolute;
 	right: 10px;
 	top: 10px;
+	font-weight: 800;
 }
 
 .product__sidebar__view__item h5 {
 	position: absolute;
 	left: 0;
-	bottom: 25px;
+	bottom: 10px;
 	width: 100%;
-	padding: 0 30px 0 20px;
+	padding: 0 20px 0 20px;
 }
 
 .product__sidebar__view__item h5 a {
 	color: #ffffff;
 	font-weight: 700;
 	line-height: 26px;
+	display: block;
+    text-align: center;
 }
 
 .product__sidebar__comment {
@@ -910,9 +931,8 @@ ol {
 }
 
 .removeArticleViewd {
-	position: absolute;
-	top:-1px;
-	left:1px;
+	width: 20%;
+	color: white;;
 
 }
 
@@ -951,15 +971,26 @@ ol {
 }
 
 .product__sidebar__comment__item__text span {
-	display: block;
 	font-size: 13px;
-	color: #b7b7b7;
+	color: white;
 }
 
 .product__page__title {
-	border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 	padding-bottom: 10px;
-	margin-bottom: 30px;
+}
+
+.product__page__title .nav-tabs{
+	margin-bottom: 20px;
+	border-bottom: 3px solid #012f39;
+}
+
+.product__page__title h4{
+	color: white;
+}
+
+.product__page__title .nav-tabs .active{
+	background-color: #06768e;
+	border-color: #012f39;
 }
 
 .product__page__title .section-title {
@@ -1236,11 +1267,13 @@ ol {
 	color: #ffffff;
 	font-weight: 700;
 	margin-bottom: 10px;
+	text-align: justify;
 }
 
 .anime__review__item__text h6 span {
 	color: #b7b7b7;
 	font-weight: 400;
+	text-align: justify;
 }
 
 .anime__review__item__text p {
@@ -1608,12 +1641,14 @@ ol {
 	text-transform: uppercase;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	text-align: justify;
 }
 
 .blog__details__title h6 span {
 	color: #b7b7b7;
 	font-weight: 400;
 	text-transform: none;
+	text-align: justify;
 }
 
 .blog__details__title h2 {
@@ -2534,6 +2569,7 @@ ol {
 	}
 	.anime__review__item__text h6 span {
 		font-size: 12px;
+		text-align: justify;
 	}
 	.anime__review__item__text {
 		padding: 18px 20px 20px;
@@ -2545,3 +2581,6 @@ ol {
 .anime-details .product__sidebar__view__item {
 	height: 130px
 }
+
+
+/*all page	*/
