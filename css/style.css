@@ -984,6 +984,10 @@ ol {
 	border-bottom: 3px solid #012f39;
 }
 
+.product__page__title .nav-link:hover{
+	border: 3px solid #012f39;
+}
+
 .product__page__title h4{
 	color: white;
 }

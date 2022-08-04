@@ -27,7 +27,7 @@ showItemsCategory = () => {
                                 `
                 let loveNews = listItems('newsLove')
                 let idNews = val.id;
-                console.log(idNews)
+                let day = val.publish_date.split(" ")[0].split("-")
                 $.each(loveNews, function (key, val) {
                     if (val.id == idNews) {
                         statusHeart = `
@@ -50,7 +50,7 @@ showItemsCategory = () => {
                         </h5>
                     </a>
                     <div class="fs-13 mb-2">
-                        <span class="badge badge-primary font-weight-bold mr-2">`+ val.category.name + ` </span><i class="fa-solid fa-clock"></i> ` + val.publish_date.split(" ")[0] + statusHeart + `
+                        <span class="badge badge-primary font-weight-bold mr-2">`+ val.category.name + ` </span><i class="fa-solid fa-clock"></i> `+ day[2]+"-"+day[1]+"-"+day[0] + statusHeart + `
                     </div>
                     <p class="mb-0 text-light font-weight-light font-italic text-justify">
                     `+ val.description + `
@@ -77,11 +77,12 @@ showItemsCategory = () => {
                     <i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích
                </span>
            </a>               `
+                let day = val.publish_date.split(" ")[0].split("-")
                 let loveNews = listItems('newsLove')
                 let idNews = val.id;
                 console.log(idNews)
                 $.each(loveNews, function (key, val) {
-                    if (val.id == idNews) {
+             if (val.id == idNews) {
                         statusHeart = `
                         <a href="javascript:void(0);" onClick="funcRemoveLove(${val.id},'newsLove');">
                              <span class="badge badge-danger font-weight-bold loveItems bg-white text-primary" data-type="news">
@@ -106,7 +107,7 @@ showItemsCategory = () => {
                     </a>
                     <div class="d-flex justify-content-between ">
                         <div class="times-news">
-                              <p class="text-light"><i class="fa-solid fa-clock mr-2"></i>` + val.publish_date.split(" ")[0] + `</p>
+                              <p class="text-light"><i class="fa-solid fa-clock mr-2"></i>` + day[2]+"-"+day[1]+"-"+day[0] + `</p>
                         </div> 
                        `+ statusHeart + `
                     </div>
