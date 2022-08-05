@@ -71,7 +71,7 @@ showItemsCategory = () => {
             elmNameCategory.html(xhtml)
             xhtml = '';
             $.each(data, function (key, val) {
-                let title = val.title.replace(/'/g||/"/g, '')
+                let title = val.title.replace(/'/g, '').replace(/"/g, '');   
                 let description = val.description.replace(/'/g, '').replace(/"/g, '');   
                 let statusHeart = `
                 <a href="javascript:void(0);" onClick="funcLove('${val.id}','`+title+`','${val.thumb}','${val.link}','${description}','${val.category.name}','newsLove');">
@@ -182,11 +182,12 @@ showArticleNew = () => {
     let xhtm = "";
     $.getJSON(API_PREFIX + "articles", function (data) {
         $.each(data, function (key, val) {
-            let title = val.title.replace(/'/g||/"/g, '')
-            let description = val.description.replace(/'/g||/"/g, '')
+            let title = val.title.replace(/'/g, '').replace(/"/g, '');   
+            let description = val.description.replace(/'/g, '').replace(/"/g, '');   
+            console.log(description)
             if (key == 5) return false;
             let statusHeart = `
-            <div onClick="funcLove('${val.id}','`+title+`','${val.thumb}','${val.link}','${description}','${val.category.name}','newsLove');" class="badge-positioned removeArticleViewd">
+            <div onClick="funcLove('${val.id}','`+title+`','${val.thumb}','${description}','`+description+`','${val.category.name}','newsLove');" class="badge-positioned removeArticleViewd">
                  <span class="badge badge-danger font-weight-bold"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span>
         </div>
        `
@@ -257,7 +258,6 @@ showArticleDetail = () => {
 showArticleLove = () => {
     let items = listItems('newsLove')
     let xhtml ='';
-    console.log(items)
     if (items.length === 0) {
             xhtml = `<p class="mb-0 text-light font-weight-light font-italic text-center">
                             Danh Sách Yêu Thích Trống!
@@ -295,7 +295,7 @@ showArticleLove = () => {
 
 }
 
-showArticleLove = () => {
+showFilmLove = () => {
     let items = listItems('filmLove')
     let xhtml ='';
     if (items.length === 0) {
