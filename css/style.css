@@ -723,9 +723,13 @@ ol {
 }
 
 .product__item__pic {
-	height: 325px;
+	height: 165px;
 	position: relative;
 	border-radius: 5px;
+}
+
+.row .col-lg-12 .product__item__pic{
+	height: 300px;
 }
 
 .product__item__pic .ep {
@@ -901,20 +905,22 @@ ol {
 }
 
 .product__sidebar__view__item h5 {
-	position: absolute;
-	left: 0;
-	bottom: 10px;
-	width: 100%;
-	padding: 0 20px 0 20px;
-}
-
-.product__sidebar__view__item h5 a {
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    padding: 0px 10px 0 10px;
+    background-color: rgba(1, 47, 57, .6);
 	color: #ffffff;
-	font-weight: 700;
+	font-weight: 900;
 	line-height: 26px;
 	display: block;
     text-align: center;
+	font-size: 14px;
+	
 }
+
+
 
 .product__sidebar__comment {
 	margin-bottom: 10px;

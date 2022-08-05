@@ -23,10 +23,11 @@ funcRemoveArticleViewd = (id) => {
    showArticleViewed();
 }
 
-funcLove = (id, title, thumb, link, local ) => {
-    let items = addItemLove(id, title, thumb, link, local);
+funcLove = (id, title, thumb, link, description, category, local ) => {
+    let items = addItemLove(id, title, thumb, link,description, category, local);
     showItemsCategory();
     showArticleNew();
+    showArticleLove();
    // Load lại danh sách
 }
 
@@ -38,4 +39,12 @@ funcRemoveLove = (id, local) => {
    saveStorage(local,items);
    showItemsCategory();
    showArticleNew();
+   showArticleLove();
+   showItemsCategory();
+}
+
+funcFilmViewed = (id, title, thumb, link) => {
+    let items = addItemArticleViewed(id, title, thumb, link);
+   // Load lại danh sách
+   showFilmViewed();
 }

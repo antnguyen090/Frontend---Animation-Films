@@ -41,12 +41,84 @@ addItemArticleViewed = (id, title, thumb, link) => {
       }
 }
 
-addItemLove = (id, title, thumb, link,local) => {
-  let taskNew = {id: id, title: title, thumb: thumb, link: link};
+addItemLove = (id, title, thumb, link, description,category, local) => {
+  let taskNew = {id: id, title: title, thumb: thumb, link: link, description: description, category: category};
   let items = listItems(local);
   items.push(taskNew);
   // Lưu item vào storgare
   saveStorage(local,items);
 }
+
+funcNameCategory = (paramCategory) =>{
+  let nameCategoryFilm = '';
+  switch (paramCategory){
+    case "vietnam": nameCategoryFilm = 'Hoạt Hình Việt Nam';
+                       break; 
+    case "donghua": nameCategoryFilm = 'Hoạt Hình Trung Quốc';
+                       break; 
+    case "anime": nameCategoryFilm = 'Hoạt Hình Nhật Bản';
+                       break; 
+    case "cartoon": nameCategoryFilm = 'Hoạt Hình Âu Mỹ';
+                       break; 
+  }
+  return nameCategoryFilm
+}
+
+filmsInCategoryList = (name) => {
+  let listFilms = [];
+  switch (name){
+    case "vietnam": listFilms= [102,103];
+                       break; 
+    case "donghua": listFilms= [104,106];
+                       break; 
+    case "anime": listFilms= [107,108];
+                       break; 
+    case "cartoon": listFilms= [109,110];
+                       break;
+    default: nameCategoryFilm = "";
+  }
+  return listFilms;
+}
+
+getFilmStatistics = () => {
+  let items = listItems('getFilmStatistics')
+  console.log(items)
+  if(items.length === 0) {
+  $.getJSON(API_PREFIX + "playlists?offset=0&sortBy=id&sort_dir=asc&type=film-cartoon", function (data) {
+    $.each(data, function (key, val) {
+          $.getJSON(API_PREFIX + `playlists/${val.id}/videos`, function (data) {
+              $.each(data, function (key, val) {
+                let strJSON = val.statistics.replace(/"\"/g,"")
+                let statisticsJson = JSON.parse(strJSON);
+                taskView = {id: val.id, viewCount: parseInt(statisticsJson.viewCount),likeCount:parseInt(statisticsJson.likeCount), commentCount: parseInt(statisticsJson.commentCount)}
+                items.push(taskView);
+                saveStorage('getFilmStatistics', items);
+              })
+          });
+})
+})}
+}
+
+getFilmBestView = (number) => {
+  let items = listItems('getFilmStatistics');
+  items.sort((a, b) => b.viewCount -a.viewCount)
+  return items.slice(0,number)
+}
+
+getFilmBestTrend = (number) => {
+  let items = listItems('getFilmStatistics');
+  items.sort((a, b) => b.commentCount -a.commentCount)
+  return items.slice(0,number)
+}
+getFilmBestLike = (number) => {
+  let items = listItems('getFilmStatistics');
+  items.sort((a, b) => b.likeCount -a.likeCount)
+  return items.slice(0,number)
+}
+
+
+
+
+
 
 
