@@ -40,10 +40,9 @@
                 <div class="col-lg-8">
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
-                            <ul class="row">
-                                <li class="col-lg-2 "><a href="./index.html">Trang Chủ</a></li>
-                                <li class="col-lg-2"><a href="./all.html">Tất Cả</a></li>
-                                <li class="col-lg-2">
+                            <ul class="row row-cols-5">
+                                <li class="col "><a href="./index.html">Trang Chủ</a></li>
+                                <li class="col ">
                                     <a href="./categories.html">Thể Loại</a>
                                     <ul class="dropdown">
                                         <li><a href="./categories.html?category=vietnam">Hoạt Hình Việt Nam</a></li>
@@ -52,9 +51,9 @@
                                         <li><a href="./categories.html?category=cartoon">Hoạt Hình Âu Mỹ</a></li>
                                     </ul>
                                 </li>
-                                <li class="col-lg-2 active"><a href="./love.html">Yêu Thích</a></li>
-                                <li class="col-lg-2"><a href="./anime-watching.html?watching=1">Đang Xem</a></li>
-                                <li class="col-lg-2">
+                                <li class="col"><a href="./love.html">Yêu Thích</a></li>
+                                <li class="col" id="api-watching-film"></li>
+                                <li class="col">
                                     <a href="./blog.html">Tin Tức</a>
                                     <ul class="dropdown" id="api-area-category-news">
                                         <!--callapi-->
@@ -118,15 +117,21 @@
                                             </nav>
                                             <div class="tab-content" id="nav-tabContent">
                                                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                                    aria-labelledby="nav-home-tab">
-                                                    <div class="row" id="api-love-film">
-                                                        
-                                                     </div>
+                                                    aria-labelledby="nav-home-tab" >
+                                                    <div class="anime__details__episodes">
+                                                        <div class="row" id="api-love-film">
+                                                            <div class="col-lg-6 col-md-4 col-sm-6 col-12" style="position: relative">
+                                                                <a href="anime-watching.html?watching=3103" class="product__sidebar__view__item set-bg mix day years img" style="background-image: url('https://i.ytimg.com/vi/mGUTAMEr30w/mqdefault.jpg'); width: 100%">
+                                                                    <div class="ep">Winx Club - Phần 1 Tập 26 - Các phù thuỷ thất bại - [trọn bộ]</div>
+                                                                </a>
+                                                                <div class="love" style="position: absolute; top: 5px; right: 20px; z-index: 999; "><a href="javascript:void(0);" class="link" onclick="funcRemoveLoveFilm('3103');"><span class="badge badge-danger font-weight-bold loveItems bg-white text-primary" data-type="news"><i class="fa-solid fa-heart text-primary" style="margin-right: 4px;"></i>Bỏ Thích</span></a></div>
+                                                    </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
                                                 <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                                     aria-labelledby="nav-profile-tab">
                                                     <div class="row" id="api-love-article">
-
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -147,79 +152,49 @@
                 </div>
 
                 <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="product__sidebar__comment">
+                        <div class="section-title">
+                            <h5>BẢNG GIÁ VÀNG</h5>
+                        </div>
+                        <div class="product__sidebar__comment__item position-relative">
+                            <table id="tableGoldPriceImport" class="wp-table">
+                                <tr>
+                                    <th>Loại vàng</th>
+                                    <th>Mua vào</th>
+                                    <th>Bán ra</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="product__sidebar__comment">
+                        <div class="section-title">
+                            <h5>BẢNG GIÁ COIN</h5>
+                        </div>
+                        <div class="product__sidebar__comment__item position-relative">
+                            <table id="tableCoinPriceImport" class="wp-table">
+                                <tr>
+                                    <th>Loại Coin</th>
+                                    <th>Giá</th>
+                                    <th>1 giờ</th>
+                                    <th>24 giờ</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>  
                     <div class="product__sidebar">
                             <div class="product__sidebar__view">
                                 <div class="section-title">
-                                    <h5>Xem Nhiều Nhất</h5>
+                                    <h5>Phim Xem Nhiều Nhất</h5>
                                 </div>
-                                <div class="filter__gallerys" id="MixItUp13475C">
-                                    <div class="product__sidebar__view__item set-bg mix day years"
-                                        data-setbg="img/sidebar/tv-1.jpg"
-                                        style="background-image: url(&quot;img/sidebar/tv-1.jpg&quot;);">
-                                        <div class="ep">Tập 19</div>
+                                <div class="filter__gallerys" id="api-film-best-view">
 
-                                        <h5><a href="#">Boruto: Naruto next generations</a></h5>
-                                    </div>
-                                    <div class="product__sidebar__view__item set-bg mix month week"
-                                        data-setbg="img/sidebar/tv-2.jpg"
-                                        style="background-image: url(&quot;img/sidebar/tv-2.jpg&quot;);">
-                                        <div class="ep">18 / ?</div>
 
-                                        <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                                    </div>
-                                    <div class="product__sidebar__view__item set-bg mix week years"
-                                        data-setbg="img/sidebar/tv-3.jpg"
-                                        style="background-image: url(&quot;img/sidebar/tv-3.jpg&quot;);">
-                                        <div class="ep">18 / ?</div>
-
-                                        <h5><a href="#">Sword art online alicization war of underworld</a></h5>
-                                    </div>
-                                    <div class="product__sidebar__view__item set-bg mix years month"
-                                        data-setbg="img/sidebar/tv-4.jpg"
-                                        style="background-image: url(&quot;img/sidebar/tv-4.jpg&quot;);">
-                                        <div class="ep">18 / ?</div>
-
-                                        <h5><a href="#">Fate/stay night: Heaven's Feel I. presage flower</a></h5>
-                                    </div>
-                                    <div class="product__sidebar__view__item set-bg mix day"
-                                        data-setbg="img/sidebar/tv-5.jpg"
-                                        style="background-image: url(&quot;img/sidebar/tv-5.jpg&quot;);">
-                                        <div class="ep">18 / ?</div>
-
-                                        <h5><a href="#">Fate stay night unlimited blade works</a></h5>
-                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
-                        <div class="product__sidebar__comment">
-                            <div class="section-title">
-                                <h5>BẢNG GIÁ VÀNG</h5>
-                            </div>
-                            <div class="product__sidebar__comment__item position-relative">
-                                <table id="tableGoldPriceImport" class="wp-table">
-                                    <tr>
-                                        <th>Loại vàng</th>
-                                        <th>Mua vào</th>
-                                        <th>Bán ra</th>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="product__sidebar__comment">
-                            <div class="section-title">
-                                <h5>BẢNG GIÁ COIN</h5>
-                            </div>
-                            <div class="product__sidebar__comment__item position-relative">
-                                <table id="tableCoinPriceImport" class="wp-table">
-                                    <tr>
-                                        <th>Loại Coin</th>
-                                        <th>Giá</th>
-                                        <th>1 giờ</th>
-                                        <th>24 giờ</th>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>                        
+                      
 
                     </div>
                 </div>

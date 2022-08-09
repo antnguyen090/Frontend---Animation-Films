@@ -46,10 +46,9 @@
                 <div class="col-lg-8">
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
-                            <ul class="row">
-                                <li class="col-lg-2 active"><a href="./index.html">Trang Chủ</a></li>
-                                <li class="col-lg-2"><a href="./all.html">Tất Cả</a></li>
-                                <li class="col-lg-2">
+                            <ul class="row row-cols-5">
+                                <li class="col "><a href="./index.html">Trang Chủ</a></li>
+                                <li class="col ">
                                     <a href="./categories.html">Thể Loại</a>
                                     <ul class="dropdown">
                                         <li><a href="./categories.html?category=vietnam">Hoạt Hình Việt Nam</a></li>
@@ -58,9 +57,9 @@
                                         <li><a href="./categories.html?category=cartoon">Hoạt Hình Âu Mỹ</a></li>
                                     </ul>
                                 </li>
-                                <li class="col-lg-2"><a href="./love.html">Yêu Thích</a></li>
-                                <li class="col-lg-2"><a href="./anime-watching.html?watching=1">Đang Xem</a></li>
-                                <li class="col-lg-2">
+                                <li class="col"><a href="./love.html">Yêu Thích</a></li>
+                                <li class="col" id="api-watching-film"></li>
+                                <li class="col">
                                     <a href="./blog.html">Tin Tức</a>
                                     <ul class="dropdown" id="api-area-category-news">
                                         <!--callapi-->
@@ -99,21 +98,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="img/trending/trend-1.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        
-                                        <div class="category"><span class="badge badge-primary font-weight-bold loveItemsMovie" style="background-color: #035364;"data-type="movie">Thể Loại</span></div>
-                                        <div class="love"><a href="javascript:void(0);" onClick="funcLove('movie');"><span class="badge badge-danger font-weight-bold loveItemsMovie" data-type="movie"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a></div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <h5><a href="./anime-details.html">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-
+                        <div class="row" id="api-film-new-date">
 
                         </div>
                     </div>
@@ -130,7 +115,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" id="api-film-best-trend">
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
                                     <div class="product__item__pic set-bg" data-setbg="img/trending/trend-1.jpg">
@@ -152,7 +137,7 @@
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-8">
                                 <div class="section-title">
-                                    <h4>Phim Chiếu Rạp</h4>
+                                    <h4>Phim Được Yêu Thích Nhất</h4>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -161,20 +146,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="img/trending/trend-1.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        
-                                        <div class="category"><span class="badge badge-primary font-weight-bold loveItemsMovie" style="background-color: #035364;"data-type="movie">Thể Loại</span></div>
-                                        <div class="love"><a href="javascript:void(0);" onClick="funcLove('movie');"><span class="badge badge-danger font-weight-bold loveItemsMovie" data-type="movie"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a></div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <h5><a href="./anime-details.html">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="row" id="api-film-best-like">
+
 
                         </div>
                     </div>
@@ -232,7 +205,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="col-lg-4 col-md-12 col-sm-8">
                     <div class="product__sidebar">
                         <div class="product__sidebar__comment" >
                             <div class="section-title">
@@ -250,11 +223,7 @@
                                 <h5>Xem Nhiều Nhất</h5>
                             </div>
                             <div class="filter__gallerys" id="api-film-best-view">
-                                <div class="product__sidebar__view__item set-bg mix day years"
-                                    data-setbg="img/sidebar/tv-1.jpg">
-                                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                    <h5><a href="#">Boruto: Naruto next generations</a></h5>
-                                </div>
+
 
                             </div>
                         </div>

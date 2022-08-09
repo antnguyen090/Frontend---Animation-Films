@@ -49,74 +49,115 @@ addItemLove = (id, title, thumb, link, description,category, local) => {
   saveStorage(local,items);
 }
 
-funcNameCategory = (paramCategory) =>{
-  let nameCategoryFilm = '';
-  switch (paramCategory){
-    case "vietnam": nameCategoryFilm = 'Hoạt Hình Việt Nam';
-                       break; 
-    case "donghua": nameCategoryFilm = 'Hoạt Hình Trung Quốc';
-                       break; 
-    case "anime": nameCategoryFilm = 'Hoạt Hình Nhật Bản';
-                       break; 
-    case "cartoon": nameCategoryFilm = 'Hoạt Hình Âu Mỹ';
-                       break; 
+
+
+nameCategoryFilm = (number) => {
+  let category = "";
+  console.log("test+"+number)
+  if (number==102 || number==103){
+    category = "Việt Nam"
+  } else if ((number==104 || number==106)){
+    category = "Trung Quốc"
+  } else if ((number==107 || number==108)){
+    category = "Nhật Bản"
+  } else {
+    category = "Âu Mỹ"
   }
-  return nameCategoryFilm
+  console.log("category+"+category)
+  return category;
 }
 
-filmsInCategoryList = (name) => {
-  let listFilms = [];
-  switch (name){
-    case "vietnam": listFilms= [102,103];
-                       break; 
-    case "donghua": listFilms= [104,106];
-                       break; 
-    case "anime": listFilms= [107,108];
-                       break; 
-    case "cartoon": listFilms= [109,110];
-                       break;
-    default: nameCategoryFilm = "";
-  }
-  return listFilms;
-}
 
-getFilmStatistics = () => {
-  let items = listItems('getFilmStatistics')
-  console.log(items)
-  if(items.length === 0) {
-  $.getJSON(API_PREFIX + "playlists?offset=0&sortBy=id&sort_dir=asc&type=film-cartoon", function (data) {
-    $.each(data, function (key, val) {
-          $.getJSON(API_PREFIX + `playlists/${val.id}/videos`, function (data) {
+
+  function getAllVideo() {
+          let items = listItems('AllVideo');
+          if (items.length !== 0) return items;
+          let data = $.getJSON( API_PREFIX + "playlists?offset=0&sortBy=id&sort_dir=asc&type=film-cartoon", function() {
+          })
+            .done(function() {
+            })
+            .fail(function() {
+            })
+            .always(function() {
+            });
+            data.always(function(data) {
               $.each(data, function (key, val) {
-                let strJSON = val.statistics.replace(/"\"/g,"")
-                let statisticsJson = JSON.parse(strJSON);
-                taskView = {id: val.id, viewCount: parseInt(statisticsJson.viewCount),likeCount:parseInt(statisticsJson.likeCount), commentCount: parseInt(statisticsJson.commentCount)}
-                items.push(taskView);
-                saveStorage('getFilmStatistics', items);
-              })
-          });
-})
-})}
+                let dataDetail = $.getJSON(API_PREFIX + `playlists/${val.id}/videos`, function () {
+                })
+                .done(function() {
+                })
+                .fail(function() {
+                })
+                .always(function() {
+                });
+                dataDetail.always(function(data) {
+                  $.each(data, function (key, val) {
+                    let strJSON = val.statistics.replace(/"\"/g,"")
+                    let statisticsJson = JSON.parse(strJSON);
+                    let strJSONImg = val.thumbnail.replace(/"\"/g,"")
+                    let thumbnailJson = JSON.parse(strJSONImg);
+                    thumbLink = thumbnailJson.medium.url
+                    taskView = {id: val.id, playlist_id: val.playlist_id, published_at: val.published_at, title: val.title, thumbnail: thumbLink, iframe: val.iframe, description: val.description, viewCount: parseInt(statisticsJson.viewCount),likeCount:parseInt(statisticsJson.likeCount), commentCount: parseInt(statisticsJson.commentCount)}
+                    items.push(taskView);
+                    saveStorage('AllVideo', items)
+                  })
+                });
+            })
+            });
+    
+    return items;
 }
 
-getFilmBestView = (number) => {
-  let items = listItems('getFilmStatistics');
-  items.sort((a, b) => b.viewCount -a.viewCount)
-  return items.slice(0,number)
+var allVideos =  getAllVideo()
+
+
+getFilmBestView = (number) =>{
+  allVideos.sort((a, b) => b.viewCount -a.viewCount)
+  return allVideos.slice(0,number)
 }
 
 getFilmBestTrend = (number) => {
-  let items = listItems('getFilmStatistics');
-  items.sort((a, b) => b.commentCount -a.commentCount)
-  return items.slice(0,number)
+  allVideos.sort((a, b) => b.commentCount -a.commentCount)
+  return allVideos.slice(0,number)
 }
 getFilmBestLike = (number) => {
-  let items = listItems('getFilmStatistics');
-  items.sort((a, b) => b.likeCount -a.likeCount)
-  return items.slice(0,number)
+  allVideos.sort((a, b) => b.likeCount -a.likeCount)
+  return allVideos.slice(0,number)
 }
 
+getFilmNewDate = (number) => {
+  allVideos.sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
+  return allVideos.slice(0,number)
+}
 
+getFilmSuggest = (number=4) => {
+  let items = [];
+  for (let i=0; i < number; i++){
+  var item = allVideos[Math.floor(Math.random() * allVideos.length)];
+  items.push(item);
+  }
+  return items
+}
+
+addItemFilmViewed = (data) => {
+  let items = listItems('VIDEO_VIEWED');
+  
+  items.push(data);
+  let uniqueValues = new Set(items.map(v => v.id));
+    if (uniqueValues.size < items.length) {
+      return;
+    } else{
+      // Lưu item vào storgare
+      saveStorage('VIDEO_VIEWED',items);
+    }
+}
+
+addFilmLove = (id) => {
+  let items = listItems('VIDEO_LOVE');
+  let item = {id: id}
+  items.push(item);
+  saveStorage('VIDEO_LOVE',items);
+}
 
 
 

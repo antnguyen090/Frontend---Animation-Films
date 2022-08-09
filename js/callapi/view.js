@@ -160,22 +160,22 @@ showArticleViewed = () => {
     let items = listItems('ARTICLE_VIEWED');
     let xhtm = "";
     $.each(items, function (key, val) {
+    let statusDelete = `<a href="javascript:void(0);" class="link" onClick="funcRemoveArticleViewd(${val.id});"><span class="badge badge-danger font-weight-bold loveItems text-light" data-type="movie"><i class="fa-solid fa-trash-can text-light" style="margin-right: 4px;"></i>Xóa</span></a>`
         xhtm += `<div class="product__sidebar__comment__item position-relative">
                     <div class="product__sidebar__comment__item__pic  ">
-                        <img style="width:100px; height: 60px;"src="${val.thumb}" alt="news">
+                        <img style="width:100px; height: 76px;"src="${val.thumb}" alt="news">
                     </div>
                     <div class="product__sidebar__comment__item__text ">
                             <h6 class="text-justify" style="height: 36px; overflow: hidden;">
                                 <a class="text-light" href="blog-details.html?iddetail=${val.id}">${val.title}</a>
                             </h6>
-                            <div onClick="funcRemoveArticleViewd(${val.id});" class="badge-positioned removeArticleViewd">
-                                <span class="badge badge-danger font-weight-bold">Xóa</span>
-                            </div>
+                            ${statusDelete}
                     </div>
                 </div>
         `
     });
     elmArticleViewed.append(xhtm)
+
 }
 //show news new index
 showArticleNew = () => {
@@ -184,12 +184,11 @@ showArticleNew = () => {
         $.each(data, function (key, val) {
             let title = val.title.replace(/'/g, '').replace(/"/g, '');   
             let description = val.description.replace(/'/g, '').replace(/"/g, '');   
-            console.log(description)
             if (key == 5) return false;
             let statusHeart = `
             <div onClick="funcLove('${val.id}','`+title+`','${val.thumb}','${description}','`+description+`','${val.category.name}','newsLove');" class="badge-positioned removeArticleViewd">
                  <span class="badge badge-danger font-weight-bold"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span>
-        </div>
+            </div>
        `
             let loveNews = listItems('newsLove')
             let idNews = val.id;
@@ -264,7 +263,7 @@ showArticleLove = () => {
                       </p>`
     } else{
     $.each(items, function (key, val) {
-        let title = val.title.replace(/'/g||/"/g, '')
+        let title = val.title
                 statusHeart = `
             <a href="javascript:void(0);" onClick="funcRemoveLove(${val.id},'newsLove');"><span class="badge badge-danger font-weight-bold loveItems bg-white text-primary" data-type="news"><i class="fa-solid fa-heart text-primary" style="margin-right: 4px;"></i>Bỏ Thích</span></a>
          `
@@ -296,42 +295,27 @@ showArticleLove = () => {
 }
 
 showFilmLove = () => {
-    let items = listItems('filmLove')
+    let items = listItems('VIDEO_LOVE')
     let xhtml ='';
     if (items.length === 0) {
             xhtml = `<p class="mb-0 text-light font-weight-light font-italic text-center">
                             Danh Sách Yêu Thích Trống!
                       </p>`
-    } else{
+    } else {
     $.each(items, function (key, val) {
-        console.log("data =  "+ val.id)
-        let title = val.title.replace(/'/g||/"/g, '')
-                statusHeart = `
-            <a href="javascript:void(0);" onClick="funcRemoveLove(${val.id},'newsLove');"><span class="badge badge-danger font-weight-bold loveItems bg-white text-primary" data-type="news"><i class="fa-solid fa-heart text-primary" style="margin-right: 4px;"></i>Bỏ Thích</span></a>
-         `
-        xhtml += `<div class="row text-light mb-4">
-        <div class="col-sm-4 grid-margin">
-            <div class="position-relative">
-                <div class="rotate-img">
-                <a onClick="funcArticleViewed('${val.id}','`+title+`','${val.thumb}','${val.link}');" href="blog-details.html?iddetail=${val.id}"><img src="` + val.thumb + `" alt="thumb" class="img-fluid"></a>
-                </div>
+            let allVideos = getAllVideo()
+            let value = allVideos.filter((o)=> o.id == val.id)[0]
+            let statusHeart = `<a href="javascript:void(0);" class="link" onClick="funcRemoveLoveFilm('${value.id}');"><span class="badge badge-danger font-weight-bold loveItems bg-white text-primary" data-type="news"><i class="fa-solid fa-heart text-primary" style="margin-right: 4px;"></i>Bỏ Thích</span></a>`
+            xhtml +=`
+            <div class="col-lg-6 col-md-6 col-sm-6 " style="position: relative">
+                        <a href="anime-watching.html?watching=${value.id}" class="product__sidebar__view__item set-bg mix day years img" style="background-image: url('${value.thumbnail}'); width: 100%; height:200px">
+                            <div class="ep">${value.title}</div>
+                        </a>
+                        <div class="love" style="position: absolute; top: 10px; right: 20px; z-index: 999; " >${statusHeart}</div>
             </div>
-        </div>
-        <div class="col-sm-8 grid-margin">
-            <a onClick="funcArticleViewed('${val.id}','`+title+`','${val.thumb}','${val.link}');" href="blog-details.html?iddetail=${val.id}">
-                <h5 class="mb-2 font-weight-bold text-light text-justify">
-                `+ val.title + `
-                </h5>
-            </a>
-            <div class="fs-13 mb-2">
-            <span class="badge badge-primary font-weight-bold mr-2">`+ val.category + ` </span>` + statusHeart + `
-            </div>
-            <p class="mb-0 text-light font-weight-light font-italic text-justify">
-            `+ val.description + `
-            </p>
-             </div>
-    </div>`;
-    });}
+        `
+    })  
+    }
     elmFilmLove.html(xhtml);
 }
 
@@ -363,67 +347,227 @@ showFilmInCategory = () => {
 showBestView = () => {
     let items = getFilmBestView(5);
     let xhtm = "";
-    $.each(items, function (key, val) {
-        $.getJSON(API_PREFIX+'videos/'+val.id, function(data) {
-            let strJSON = data.thumbnail.replace(/"\"/g,"")
-            let thumbnailJson = JSON.parse(strJSON);
-            thumbLink = thumbnailJson.medium.url
-            xhtm += `
+     $.each(items,  function (key, val) {
+        xhtm+=  `
             <a href="anime-watching.html?watching=${val.id}">
                 <div class="product__sidebar__view__item set-bg mix day years bg-image"
-                style="background-image: url('${thumbLink}');">
+                style="background-image: url('${val.thumbnail}');">
                         <div class="view"><i class="fa fa-eye"></i>`+val.viewCount.toLocaleString()+`</div>
-                        <h5>${data.title}</h5>
+                        <h5>${val.title}</h5>
                 </div>
             </a>
             `
-            elmFilmBestView.html(xhtm)
     });
-    });
+    elmFilmBestView.html(xhtm);
 }
 
-
-showFilmViewed = () =>{
-    let items = listItems('FILM_VIEWED');
+showBestTrend = () => {
+    let items = getFilmBestTrend(6);
     let xhtm = "";
-    $.each(items, function (key, val) {
-        xhtm += `
-        `
-    });
-    elmFilmsViewed.append(xhtm);
+     $.each(items,  function (key, val) {
+        let heartVideo = listItems('VIDEO_LOVE')
+        let statusHeart = `<a href="javascript:void(0);" class="link" onClick="funcLoveFilm('${val.id}');"><span class="badge badge-danger font-weight-bold loveItems" data-type="movie"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a>`
+        let idVideo = val.id
+        let idPublic = nameCategoryFilm(val.playlist_id)    
+        $.each(heartVideo, function (key, val) {
+            if (val.id == idVideo) {
+                statusHeart = `<a href="javascript:void(0);" class="link" onClick="funcRemoveLoveFilm('${val.id}');"><span class="badge badge-danger font-weight-bold loveItems bg-white text-primary" data-type="news"><i class="fa-solid fa-heart text-primary" style="margin-right: 4px;"></i>Bỏ Thích</span></a>`
+                }
+            })
+     xhtm +=`<div class="col-lg-6 col-md-6 col-sm-6"  style="position: relative">
+                <div class="product__item" style="position: relative" >
+                        <a href="anime-watching.html?watching=${val.id}">
+                                <div class="product__item__pic set-bg" style="background-image: url('${val.thumbnail}');">
+                                    <div class="category"><span class="badge badge-primary font-weight-bold loveItemsMovie" style="background-color: #035364;"data-type="movie">${idPublic}</span></div>
+                                    <div class="view"><i class="fa fa-eye"></i> `+val.viewCount.toLocaleString()+`</div>
+                                </div>
+                                <div class="product__item__text">
+                                    <h5>${val.title}</h5>
+                                </div>
+                         </a>
+                         <div class="love" style="position: absolute; top:125px ; right: 10px; z-index: 999; ">${statusHeart} </div>
+                </div>
+
+            </div>`
+        });       
+    elmFilmBestTrend.html(xhtm);
 }
 
-showSlideFlim = (number) =>{
-    let items = listItems('getFilmStatistics')
-    let i = 0;
-    console.log(items[getRamdom(0,items.length)])
-    let xhtm ="";
-    $.getJSON(API_PREFIX+'videos/2334', function(data) {
-        let strJSON = data.thumbnail.replace(/"\"/g,"")
-        let thumbnailJson = JSON.parse(strJSON);
-        thumbLink = thumbnailJson.medium.url
-        xhtm += `
-        
-        <div class="hero__items set-bg" data-setbg="${thumbLink}">
-         <div class="row">
-                <div class="col-lg-6">
-                    <div class="hero__text">
-                        <h2>Fate / Stay Night: Unlimited Blade Works</h2>
-                        <p>After 30 days of travel across the world...</p>
-                        <a href="#"><span>Xem Ngay</span> <i class="fa fa-angle-right"></i></a>
-                    </div>
+showBestLike = () => {
+    let items = getFilmBestLike(5);
+    let xhtm = "";
+     $.each(items,  function (key, val) {
+        let heartVideo = listItems('VIDEO_LOVE')
+        let statusHeart = `<a href="javascript:void(0);" class="link" onClick="funcLoveFilm('${val.id}');"><span class="badge badge-danger font-weight-bold loveItems" data-type="movie"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a>`
+        let idVideo = val.id
+        let idPublic = nameCategoryFilm(val.playlist_id)    
+        $.each(heartVideo, function (key, val) {
+            if (val.id == idVideo) {
+                statusHeart = `<a href="javascript:void(0);" class="link" onClick="funcRemoveLoveFilm('${val.id}');"><span class="badge badge-danger font-weight-bold loveItems bg-white text-primary" data-type="news"><i class="fa-solid fa-heart text-primary" style="margin-right: 4px;"></i>Bỏ Thích</span></a>`
+                }
+            })
+            
+            let colLg = "col-lg-6 col-md-6 col-sm-6"
+            let stylePosition = "position: absolute; top:125px ; right: 10px; z-index: 999; "
+            if (key === 0) {
+                colLg = "col-lg-12 col-md-12 col-sm-12"
+                stylePosition = "position: absolute; top:310px ; right: 10px; z-index: 999; "
+            }
+     xhtm +=`<div class="${colLg} col-md-6 col-sm-6"  style="position: relative">
+                <div class="product__item" style="position: relative" >
+                        <a href="anime-watching.html?watching=${val.id}">
+                                <div class="product__item__pic set-bg" style="background-image: url('${val.thumbnail}');">
+                                    <div class="category"><span class="badge badge-primary font-weight-bold loveItemsMovie" style="background-color: #035364;"data-type="movie">${idPublic}</span></div>
+                                    <div class="view"><i class="fa fa-eye"></i> `+val.viewCount.toLocaleString()+`</div>
+                                </div>
+                                <div class="product__item__text">
+                                    <h5>${val.title}</h5>
+                                </div>
+                         </a>
+                         <div class="love" style="${stylePosition}">${statusHeart} </div>
                 </div>
-          </div>
-        </div>
- 
-        `
-        // elmFilmSlide.append(xhtm);
-        number--;
-        console.log(number)
-        if(i === number) return false;
-        showSlideFlim(number)
-});
+
+            </div>`
+        });       
+        elmFilmBestLike.html(xhtm);
 }
+
+showNewDate = () => {
+    let newVideo = getFilmNewDate(3)
+    let xhtm ="";
+    $.each(newVideo,  function (key, val) {
+        let heartVideo = listItems('VIDEO_LOVE')
+        let statusHeart = `<a href="javascript:void(0);" class="link" onClick="funcLoveFilm('${val.id}');"><span class="badge badge-danger font-weight-bold loveItems" data-type="movie"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a>`
+        let idVideo = val.id
+        let idPublic = nameCategoryFilm(val.playlist_id)
+        $.each(heartVideo, function (key, val) {
+            if (val.id == idVideo) {
+                statusHeart = `<a href="javascript:void(0);" class="link" onClick="funcRemoveLoveFilm('${val.id}');"><span class="badge badge-danger font-weight-bold loveItems bg-white text-primary" data-type="news"><i class="fa-solid fa-heart text-primary" style="margin-right: 4px;"></i>Bỏ Thích</span></a>`
+                }
+            })
+            
+            let colLg = "col-lg-6 col-md-6 col-sm-6"
+            let stylePosition = "position: absolute; top:125px ; right: 10px; z-index: 999; "
+            if (key === 0) {
+                colLg = "col-lg-12 col-md-12 col-sm-12"
+                stylePosition = "position: absolute; top:310px ; right: 10px; z-index: 999; "
+            }
+     xhtm +=`<div class="${colLg} col-md-6 col-sm-6"  style="position: relative">
+                <div class="product__item" style="position: relative" >
+                        <a href="anime-watching.html?watching=${val.id}">
+                                <div class="product__item__pic set-bg" style="background-image: url('${val.thumbnail}');">
+                                    <div class="category"><span class="badge badge-primary font-weight-bold loveItemsMovie" style="background-color: #035364;"data-type="movie">${idPublic}</span></div>
+                                    <div class="view"><i class="fa fa-eye"></i> `+val.viewCount.toLocaleString()+`</div>
+                                </div>
+                                <div class="product__item__text">
+                                    <h5>${val.title}</h5>
+                                </div>
+                         </a>
+                         <div class="love" style="${stylePosition}">${statusHeart} </div>
+                </div>
+
+            </div>`
+        }); 
+        elmFilmNewDate.html(xhtm);
+}
+
+showFilmViewed = () => {
+    let videoViewed = listItems('VIDEO_VIEWED').slice(-5)
+    let xhtm ="";
+    $.each(videoViewed,  function (key, val) {
+        let heartVideo = listItems('VIDEO_LOVE')
+        let statusDelete = `<a href="javascript:void(0);" class="link" onClick="funcRemoveViewedFilm('${val.id}');"><span class="badge badge-danger font-weight-bold loveItems text-light" data-type="movie"><i class="fa-solid fa-trash-can text-light" style="margin-right: 4px;"></i>Xóa</span></a>`
+        let idVideo = val.id
+        let idPublic = nameCategoryFilm(val.playlist_id)
+            let colLg = "col-lg-6 col-md-6 col-sm-6"
+            let stylePosition = "position: absolute; top:125px ; right: 10px; z-index: 999; "
+            if (key === 0) {
+                colLg = "col-lg-12 col-md-12 col-sm-12"
+                stylePosition = "position: absolute; top:310px ; right: 10px; z-index: 999; "
+            }
+     xhtm +=`<div class="${colLg}"  style="position: relative">
+                <div class="product__item" style="position: relative" >
+                        <a href="anime-watching.html?watching=${val.id}">
+                                <div class="product__item__pic set-bg" style="background-image: url('${val.thumbnail}');">
+                                    <div class="category"><span class="badge badge-primary font-weight-bold loveItemsMovie" style="background-color: #035364;"data-type="movie">${idPublic}</span></div>
+                                    <div class="view"><i class="fa fa-eye"></i> `+val.viewCount.toLocaleString()+`</div>
+                                </div>
+                                <div class="product__item__text">
+                                    <h5>${val.title}</h5>
+                                </div>
+                         </a>
+                         <div class="love" style="${stylePosition}">${statusDelete} </div>
+                </div>
+
+            </div>`
+        });     
+    elmFilmsViewed.html(xhtm) 
+}
+
+showFilmWatching = () => {
+    let paramID = $.urlParam('watching')
+    if (paramID == null) return false;
+    let allVideos = getAllVideo()
+    let playlistID = allVideos.filter((obj)=> obj.id == paramID)[0]
+    addItemFilmViewed(playlistID);
+    let episodeList = allVideos.filter((obj)=> obj.playlist_id == playlistID.playlist_id)
+    //iframe
+    elmFilmEpisode.html(playlistID.iframe)
+    //title
+    let xhtm =`<h5 >
+                ${playlistID.title}
+              </h5>`;
+    elmFilmTitle.html(xhtm)
+    //episode
+    let xhtmEpisode ="";
+    $.each(episodeList, function (index, val) {
+        let videoView = listItems('VIDEO_VIEWED')
+        let opacity =  (videoView.filter((o)=> o.id == val.id).length >0) ? 0.3 : 1;
+        xhtmEpisode +=`
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                        <a href="anime-watching.html?watching=${val.id}" class="product__sidebar__view__item set-bg mix day years img" style="background-image: url('${val.thumbnail}'); opacity: ${opacity}">
+                            <div class="ep">${val.title}</div>
+                        </a>
+                 </div>
+        `
+    });   
+    elmFilmEpisodeList.html(xhtmEpisode); 
+    let suggestVideo = getFilmSuggest(4)
+    let xhtmSuggest =""
+   
+
+    $.each(suggestVideo, function (index, value) {
+            let heartVideo = listItems('VIDEO_LOVE')
+            let statusHeart = `<a href="javascript:void(0);" class="link" onClick="funcLoveFilm('${value.id}');"><span class="badge badge-danger font-weight-bold loveItems" data-type="movie"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a>`
+            let idVideo = value.id
+                
+            $.each(heartVideo, function (key, val) {
+                if (val.id == idVideo) {
+                    statusHeart = `<a href="javascript:void(0);" class="link" onClick="funcRemoveLoveFilm('${value.id}');"><span class="badge badge-danger font-weight-bold loveItems bg-white text-primary" data-type="news"><i class="fa-solid fa-heart text-primary" style="margin-right: 4px;"></i>Bỏ Thích</span></a>`
+                    }
+                   })
+            xhtmSuggest +=`
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12" style="position: relative">
+                        <a href="anime-watching.html?watching=${value.id}" class="product__sidebar__view__item set-bg mix day years img" style="background-image: url('${value.thumbnail}');">
+                            <div class="ep">${value.title}</div>
+                        </a>
+                        <div class="love" style="position: absolute; top: 5px; right: 20px; z-index: 999; " >${statusHeart}</div>
+            </div>
+        `
+    });   
+    elmFilmSuggest.html(xhtmSuggest);      
+}
+
+ showWatchingFilm = () =>{
+    let items = listItems('VIDEO_VIEWED');
+    console.log(items.slice(-1)[0].id)
+    let id = items.slice(-1)[0].id
+    if (items = null) return false
+    xhtml =`<a href="./anime-watching.html?watching=${id}">Đang Xem</a>`
+    elmFilmWatching.html(xhtml)
+ }
+
+
 
 
 

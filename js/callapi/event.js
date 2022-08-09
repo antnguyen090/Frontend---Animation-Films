@@ -48,3 +48,42 @@ funcFilmViewed = (id, title, thumb, link) => {
    // Load lại danh sách
    showFilmViewed();
 }
+
+funcLoveFilm = (id) => {
+    addFilmLove(id);
+    showFilmWatching()
+    showFilmLove()
+    showBestTrend()
+    showFilmViewed()
+    showBestLike()
+    showNewDate()
+}
+
+funcRemoveLoveFilm = (id) => {
+    let items = listItems('VIDEO_LOVE');
+    items = $.grep(items, function(e){ 
+        return e.id != id; 
+   });
+   saveStorage('VIDEO_LOVE',items);
+   showFilmWatching()
+   showFilmLove()
+   showBestTrend()
+   showFilmViewed();
+   showBestLike()
+   showNewDate()
+}
+
+funcRemoveViewedFilm = (id) => {
+    console.log("test")
+    let items = listItems('VIDEO_VIEWED');
+    items = $.grep(items, function(e){ 
+        return e.id != id; 
+   });
+   saveStorage('VIDEO_VIEWED',items);
+   showFilmWatching()
+   showFilmLove()
+   showBestTrend()
+   showFilmViewed();
+   showBestLike()
+   showNewDate()
+}
