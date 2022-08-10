@@ -136,8 +136,8 @@ ol {
 }
 
 .spad {
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 }
 
 .text-white h1,
@@ -1103,7 +1103,7 @@ ol {
 -----------------------*/
 
 .anime-details {
-	padding-top: 60px;
+	padding-top: 30px;
 }
 
 .anime__details__content {

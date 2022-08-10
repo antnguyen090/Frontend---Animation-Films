@@ -8,6 +8,7 @@ $( document ).ready(function() {
     showArticleDetail();
     showArticleNew();
     showArticleLove();
+    changeTitle();
     setTimeout(filmView, 1000)
 });
 

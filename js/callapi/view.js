@@ -567,7 +567,14 @@ showFilmWatching = () => {
     elmFilmWatching.html(xhtml)
  }
  changeTitle = () => {
-    document.title = 'blah';
+    let paramID = $.urlParam('id')
+    if (paramID === null) {
+        return false;
+    } else {
+        $.getJSON(API_PREFIX + "categories_news/" + paramID + "/articles", function (data) {
+         document.title = data[0].category.name + " | ZendVN.com";
+        })
+    }
  }
 
 
