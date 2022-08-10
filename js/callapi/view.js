@@ -176,7 +176,7 @@ showArticleViewed = () => {
                 </div>
         `
     });
-    elmArticleViewed.append(xhtm)
+    elmArticleViewed.html(xhtm)
 
 }
 //show news new index
