@@ -165,7 +165,6 @@ filmView = () => {
   showNewDate();
   showBestLike();
   showFilmWatching();
-  showFilmLove();
   showWatchingFilm();
   showFilmViewed() ;
 }

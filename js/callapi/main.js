@@ -9,6 +9,7 @@ $( document ).ready(function() {
     showArticleNew();
     showArticleLove();
     changeTitle();
-    setTimeout(filmView, 1000)
+    showFilmLove();
+    setTimeout(filmView, 500)
 });
 

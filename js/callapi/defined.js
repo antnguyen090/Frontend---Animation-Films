@@ -21,5 +21,8 @@ let elmFilmEpisode =$("#api-ifram-video")
 let elmFilmTitle = $("#api-title-video")
 let elmFilmSuggest =$("#api-suggest-video")
 let elmFilmWatching =$("#api-watching-film")
+let elmFilmWatchingFooter =$("#api-watching-film-footer")
 let elmFilmsViewed      = $("#api-film-viewed")
+
+
 

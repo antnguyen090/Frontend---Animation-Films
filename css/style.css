@@ -1676,7 +1676,6 @@ ol {
 	text-transform: uppercase;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	text-align: justify;
 }
 
 .blog__details__title h6 span {
@@ -2010,7 +2009,7 @@ ol {
 	list-style: none;
 	display: inline-block;
 	position: relative;
-	margin-right: 10px;
+	margin-right: 25px;
 }
 
 .footer__nav ul li:hover a {

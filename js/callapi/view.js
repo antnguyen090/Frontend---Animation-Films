@@ -225,10 +225,12 @@ showArticleDetail = () => {
 
     } else {
         $.getJSON(API_PREFIX + "articles/" + paramID, function (data) {
+            let day = data.publish_date.split(" ")[0].split("-")
             xhtml = `<div class="row d-flex justify-content-center">
             <div class="col-lg-8">
                 <div class="blog__details__title">
-                    <h6>${data.category.name} <span>- ${data.publish_date.split(" ")[0]}</span></h6>
+                    <h6>${data.category.name} </h6>
+                    <h6><i class="fa-solid fa-clock"></i> ` + day[2]+"-"+day[1]+"-"+day[0] +`</h6>
                     <h2>${data.title}</h2>
                     <div class="blog__details__social">
                         <a href="#" class="facebook"><i class="fa fa-facebook-square"></i> Facebook</a>
@@ -565,6 +567,7 @@ showFilmWatching = () => {
     id = items.slice(-1)[0].id
     xhtml =`<a href="./anime-watching.html?watching=${id}">Đang Xem</a>`
     elmFilmWatching.html(xhtml)
+    elmFilmWatchingFooter.html(xhtml)
  }
  changeTitle = () => {
     let paramID = $.urlParam('id')
