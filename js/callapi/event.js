@@ -24,7 +24,7 @@ funcRemoveArticleViewd = (id) => {
 }
 
 funcLove = (id, title, thumb, link, description, category, local ) => {
-    let items = addItemLove(id, title, thumb, link,description, category, local);
+    addItemLove(id, title, thumb, link,description, category, local);
     showItemsCategory();
     showArticleNew();
     showArticleLove();
@@ -44,7 +44,7 @@ funcRemoveLove = (id, local) => {
 }
 
 funcFilmViewed = (id, title, thumb, link) => {
-    let items = addItemArticleViewed(id, title, thumb, link);
+   addItemArticleViewed(id, title, thumb, link);
    // Load lại danh sách
    showFilmViewed();
 }

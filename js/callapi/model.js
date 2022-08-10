@@ -159,6 +159,17 @@ addFilmLove = (id) => {
   saveStorage('VIDEO_LOVE',items);
 }
 
+filmView = () => {
+  showBestView();
+  showBestTrend();
+  showNewDate();
+  showBestLike();
+  showFilmWatching();
+  showFilmLove();
+  showWatchingFilm();
+  showFilmViewed() ;
+}
+
 
 
 

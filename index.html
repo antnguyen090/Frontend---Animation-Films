@@ -58,7 +58,7 @@
                                     </ul>
                                 </li>
                                 <li class="col"><a href="./love.html">Yêu Thích</a></li>
-                                <li class="col" id="api-watching-film"></li>
+                                <li class="col" id="api-watching-film"><a href="./anime-watching.html?watching=2230">Đang Xem</a></li>
                                 <li class="col">
                                     <a href="./blog.html">Tin Tức</a>
                                     <ul class="dropdown" id="api-area-category-news">
@@ -92,11 +92,7 @@
                                     <h4>Mới Cập Nhật</h4>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="btn__all">
-                                    <a href="#" class="primary-btn">Xem Tất Cả <span class="arrow_right"></span></a>
-                                </div>
-                            </div>
+
                         </div>
                         <div class="row" id="api-film-new-date">
 
@@ -109,11 +105,7 @@
                                     <h4>Top Trending</h4>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="btn__all">
-                                    <a href="#" class="primary-btn">Xem tất cả <span class="arrow_right"></span></a>
-                                </div>
-                            </div>
+
                         </div>
                         <div class="row" id="api-film-best-trend">
                             <div class="col-lg-4 col-md-6 col-sm-6">
@@ -140,11 +132,7 @@
                                     <h4>Phim Được Yêu Thích Nhất</h4>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="btn__all">
-                                    <a href="#" class="primary-btn">Xem tất cả <span class="arrow_right"></span></a>
-                                </div>
-                            </div>
+
                         </div>
                         <div class="row" id="api-film-best-like">
 
@@ -158,50 +146,11 @@
                                     <h4>Phim đã xem</h4>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="btn__all">
-                                    <a href="#" class="primary-btn">Xem Tất Cả <span class="arrow_right"></span></a>
-                                </div>
-                            </div>
                         </div>
                         <div class="row" id="api-film-viewed">
-                            <div class="col-lg-12 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="https://i.ytimg.com/vi/GR_FMcM4SLk/mqdefault.jpg">
-                                        <div class="category"><span class="badge badge-primary font-weight-bold loveItemsMovie" style="background-color: #035364;"data-type="movie">Thể Loại</span></div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                        <div class="love"><a href="javascript:void(0);" onClick="funcLove('movie');"><span class="badge badge-danger font-weight-bold loveItemsMovie" data-type="movie"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a></div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <h5><a href="./anime-details.html">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="https://i.ytimg.com/vi/GR_FMcM4SLk/mqdefault.jpg">
-                                        <div class="category"><span class="badge badge-primary font-weight-bold loveItemsMovie" style="background-color: #035364;"data-type="movie">Thể Loại</span></div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                        <div class="love"><a href="javascript:void(0);" onClick="funcLove('movie');"><span class="badge badge-danger font-weight-bold loveItemsMovie" data-type="movie"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a></div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <h5><a href="./anime-details.html">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" onclick="location.href='./anime-details.html'" data-setbg="https://i.ytimg.com/vi/GR_FMcM4SLk/mqdefault.jpg">
-                                        <div class="category"><span class="badge badge-primary font-weight-bold loveItemsMovie" style="background-color: #035364;"data-type="movie">Thể Loại</span></div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                        <div class="love"><a href="javascript:void(0);" onClick="funcLove('movie');"><span class="badge badge-danger font-weight-bold loveItemsMovie" data-type="movie"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a></div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <h5><a href="./anime-details.html">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-
+                            <p class="ml-4 text-light font-weight-light font-italic text-center">
+                                Danh Sách Yêu Thích Trống!
+                          </p>
                         </div>
                     </div>
                 </div>
@@ -234,7 +183,9 @@
                                 <h5>Tin Tức Đã Xem</h5>
                             </div>
                             <div class="product__sidebar__comment__item position-relative" id="articleViewed">
-                                <!-- viewed -->
+                                <p class="ml-4 text-light font-weight-light font-italic text-center">
+                                    Danh Sách Tin Tức Đã Xem Trống!
+                              </p>
                             </div>
                         </div>
 

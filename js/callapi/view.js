@@ -258,7 +258,7 @@ showArticleLove = () => {
     let items = listItems('newsLove')
     let xhtml ='';
     if (items.length === 0) {
-            xhtml = `<p class="mb-0 text-light font-weight-light font-italic text-center">
+            xhtml = `<p class="ml-4 text-light font-weight-light font-italic text-center">
                             Danh Sách Yêu Thích Trống!
                       </p>`
     } else{
@@ -298,7 +298,7 @@ showFilmLove = () => {
     let items = listItems('VIDEO_LOVE')
     let xhtml ='';
     if (items.length === 0) {
-            xhtml = `<p class="mb-0 text-light font-weight-light font-italic text-center">
+            xhtml = `<p class="ml-4 text-light font-weight-light font-italic text-center">
                             Danh Sách Yêu Thích Trống!
                       </p>`
     } else {
@@ -560,12 +560,16 @@ showFilmWatching = () => {
 
  showWatchingFilm = () =>{
     let items = listItems('VIDEO_VIEWED');
-    console.log(items.slice(-1)[0].id)
-    let id = items.slice(-1)[0].id
-    if (items = null) return false
+    let id ="";
+    if (items == null) return false;
+    id = items.slice(-1)[0].id
     xhtml =`<a href="./anime-watching.html?watching=${id}">Đang Xem</a>`
     elmFilmWatching.html(xhtml)
  }
+ changeTitle = () => {
+    document.title = 'blah';
+ }
+
 
 
 
