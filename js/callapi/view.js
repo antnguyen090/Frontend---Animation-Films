@@ -6,6 +6,7 @@ showListCategory = () => {
             xhtml += `<li><a href="blog.html?id=${val.id}" role="menuitem" tabindex="0">${val.name}</a></li>`;
         });
         elmAreaCategoryNews.html(xhtml);
+        $("#api-area-category-news-slicknav").html(xhtml);
     });
 }
 //Lấy danh sách bài viết trong 1 category nào đó
@@ -387,7 +388,7 @@ showBestTrend = () => {
                                     <h5>${val.title}</h5>
                                 </div>
                          </a>
-                         <div class="love" style="position: absolute; top:125px ; right: 10px; z-index: 999; ">${statusHeart} </div>
+                         <div class="love" style="position: absolute; top:120px ; right: 10px; z-index: 999; ">${statusHeart} </div>
                 </div>
 
             </div>`
@@ -410,10 +411,10 @@ showBestLike = () => {
             })
             
             let colLg = "col-lg-6 col-md-6 col-sm-6"
-            let stylePosition = "position: absolute; top:125px ; right: 10px; z-index: 999; "
+            let stylePosition = "position: absolute; top:120px ; right: 10px; z-index: 999; "
             if (key === 0) {
                 colLg = "col-lg-12 col-md-12 col-sm-12"
-                stylePosition = "position: absolute; top:310px ; right: 10px; z-index: 999; "
+                stylePosition = "position: absolute; top:305px ; right: 10px; z-index: 999; "
             }
      xhtm +=`<div class="${colLg} col-md-6 col-sm-6"  style="position: relative">
                 <div class="product__item" style="position: relative" >
@@ -449,10 +450,10 @@ showNewDate = () => {
             })
             
             let colLg = "col-lg-6 col-md-6 col-sm-6"
-            let stylePosition = "position: absolute; top:125px ; right: 10px; z-index: 999; "
+            let stylePosition = "position: absolute; top:120px ; right: 10px; z-index: 999; "
             if (key === 0) {
                 colLg = "col-lg-12 col-md-12 col-sm-12"
-                stylePosition = "position: absolute; top:310px ; right: 10px; z-index: 999; "
+                stylePosition = "position: absolute; top:305px ; right: 10px; z-index: 999; "
             }
      xhtm +=`<div class="${colLg} col-md-6 col-sm-6"  style="position: relative">
                 <div class="product__item" style="position: relative" >
@@ -482,10 +483,10 @@ showFilmViewed = () => {
         let idVideo = val.id
         let idPublic = nameCategoryFilm(val.playlist_id)
             let colLg = "col-lg-6 col-md-6 col-sm-6"
-            let stylePosition = "position: absolute; top:125px ; right: 10px; z-index: 999; "
+            let stylePosition = "position: absolute; top:120px ; right: 10px; z-index: 999; "
             if (key === 0) {
                 colLg = "col-lg-12 col-md-12 col-sm-12"
-                stylePosition = "position: absolute; top:310px ; right: 10px; z-index: 999; "
+                stylePosition = "position: absolute; top:305px ; right: 10px; z-index: 999; "
             }
      xhtm +=`<div class="${colLg}"  style="position: relative">
                 <div class="product__item" style="position: relative" >
@@ -579,6 +580,51 @@ showFilmWatching = () => {
         })
     }
  }
+
+ showSearch = () => {
+    let paramSearch = $.urlParam('search')
+    let xhtm ="";
+    let searchValue = [];
+    if ( paramSearch === null) {
+
+        return false;
+    } else {
+        let arrSearch = paramSearch.split("+")
+        $.each(arrSearch, function (index, value) {
+            let string = removeAccents(value).toLowerCase()
+            let allVideos = getAllVideo()
+            let newArr = allVideos.filter((obj) => removeAccents(obj.title).toLowerCase().search(" "+string+" ") >0)
+            searchValue.push(...newArr)
+         })
+         if (searchValue.length == 0 ) {
+            xhtm =`<p class="ml-4 text-light font-weight-light font-italic text-center">
+            Không có kết quả phù hợp!
+                 </p>`;
+            elmFilmSearch.html(xhtm);
+         } else{
+         $.each(searchValue, function (index, val) {
+            let idPublic = nameCategoryFilm(val.playlist_id)  
+            xhtm +=`<div class="col-lg-6 col-md-6 col-sm-6"  style="position: relative">
+            <div class="product__item" style="position: relative" >
+                    <a href="anime-watching.html?watching=${val.id}">
+                            <div class="product__item__pic set-bg" style="background-image: url('${val.thumbnail}');">
+                                <div class="category"><span class="badge badge-primary font-weight-bold loveItemsMovie" style="background-color: #035364;"data-type="movie">${idPublic}</span></div>
+                                <div class="view"><i class="fa fa-eye"></i> `+val.viewCount.toLocaleString()+`</div>
+                            </div>
+                            <div class="product__item__text">
+                                <h5>${val.title}</h5>
+                            </div>
+                     </a>
+            </div>
+
+        </div>
+                    
+                `
+            elmFilmSearch.html(xhtm);
+            if (index >18) return false;
+         })}
+
+}}
 
 
 

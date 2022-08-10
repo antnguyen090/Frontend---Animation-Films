@@ -23,6 +23,9 @@ let elmFilmSuggest =$("#api-suggest-video")
 let elmFilmWatching =$("#api-watching-film")
 let elmFilmWatchingFooter =$("#api-watching-film-footer")
 let elmFilmsViewed      = $("#api-film-viewed")
+let elmFilmSearch      = $("#api-film-search")
+
+
 
 
 

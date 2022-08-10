@@ -52,8 +52,6 @@ addItemLove = (id, title, thumb, link, description,category, local) => {
 
 
 nameCategoryFilm = (number) => {
-  let category = "";
-  console.log("test+"+number)
   if (number==102 || number==103){
     category = "Việt Nam"
   } else if ((number==104 || number==106)){
@@ -63,7 +61,6 @@ nameCategoryFilm = (number) => {
   } else {
     category = "Âu Mỹ"
   }
-  console.log("category+"+category)
   return category;
 }
 

@@ -84,6 +84,7 @@ funcRemoveViewedFilm = (id) => {
    showFilmLove()
    showBestTrend()
    showFilmViewed();
-   showBestLike()
-   showNewDate()
+   showBestLike();
+   showNewDate();
 }
+
