@@ -2161,6 +2161,11 @@ ol {
 		width: 5%;
 	}
 
+	.dropdown li {
+		margin-left: 20px;
+		font-style: italic;
+	}
+
 	.hero {
 		overflow: hidden;
 	}

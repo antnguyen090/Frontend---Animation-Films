@@ -7,6 +7,7 @@ showListCategory = () => {
         });
         elmAreaCategoryNews.html(xhtml);
         $("#api-area-category-news-slicknav").html(xhtml);
+        $(".slicknav_nav ul.row").removeClass("row-cols-5")
     });
 }
 //Lấy danh sách bài viết trong 1 category nào đó
