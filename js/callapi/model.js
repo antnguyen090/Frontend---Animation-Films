@@ -93,7 +93,7 @@ nameCategoryFilm = (number) => {
                     let statisticsJson = JSON.parse(strJSON);
                     let strJSONImg = val.thumbnail.replace(/"\"/g,"")
                     let thumbnailJson = JSON.parse(strJSONImg);
-                    thumbLink = thumbnailJson.medium.url
+                    thumbLink = thumbnailJson.maxres.url
                     taskView = {id: val.id, playlist_id: val.playlist_id, published_at: val.published_at, title: val.title, thumbnail: thumbLink, iframe: val.iframe, description: val.description, viewCount: parseInt(statisticsJson.viewCount),likeCount:parseInt(statisticsJson.likeCount), commentCount: parseInt(statisticsJson.commentCount)}
                     items.push(taskView);
                     saveStorage('AllVideo', items)

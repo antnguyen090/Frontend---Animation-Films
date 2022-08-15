@@ -417,7 +417,7 @@ showBestLike = () => {
                 colLg = "col-lg-12 col-md-12 col-sm-12"
                 stylePosition = "position: absolute; top:305px ; right: 10px; z-index: 999; "
             }
-     xhtm +=`<div class="${colLg} col-md-6 col-sm-6"  style="position: relative">
+     xhtm +=`<div class="${colLg}"  style="position: relative">
                 <div class="product__item" style="position: relative" >
                         <a href="anime-watching.html?watching=${val.id}">
                                 <div class="product__item__pic set-bg" style="background-image: url('${val.thumbnail}');">
