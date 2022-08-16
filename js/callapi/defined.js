@@ -24,6 +24,10 @@ let elmFilmWatching =$("#api-watching-film")
 let elmFilmWatchingFooter =$("#api-watching-film-footer")
 let elmFilmsViewed      = $("#api-film-viewed")
 let elmFilmSearch      = $("#api-film-search")
+let elmNewsBoxSlider      = $("#api-news-box-slider")
+let elmNewsBox      = $("#api-news-box")
+let elmCategoryFilmName = $("#api-category-name")
+let elmCategoryFilmNameItems = $("#api-category-name-items")
 
 
 

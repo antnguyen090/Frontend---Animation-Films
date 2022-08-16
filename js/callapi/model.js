@@ -49,23 +49,6 @@ addItemLove = (id, title, thumb, link, description,category, local) => {
   saveStorage(local,items);
 }
 
-
-
-nameCategoryFilm = (number) => {
-  if (number==102 || number==103){
-    category = "Việt Nam"
-  } else if ((number==104 || number==106)){
-    category = "Trung Quốc"
-  } else if ((number==107 || number==108)){
-    category = "Nhật Bản"
-  } else {
-    category = "Âu Mỹ"
-  }
-  return category;
-}
-
-
-
   function getAllVideo() {
           let items = listItems('AllVideo');
           if (items.length !== 0) return items;
@@ -93,7 +76,7 @@ nameCategoryFilm = (number) => {
                     let statisticsJson = JSON.parse(strJSON);
                     let strJSONImg = val.thumbnail.replace(/"\"/g,"")
                     let thumbnailJson = JSON.parse(strJSONImg);
-                    thumbLink = thumbnailJson.maxres.url
+                    thumbLink = thumbnailJson.high.url
                     taskView = {id: val.id, playlist_id: val.playlist_id, published_at: val.published_at, title: val.title, thumbnail: thumbLink, iframe: val.iframe, description: val.description, viewCount: parseInt(statisticsJson.viewCount),likeCount:parseInt(statisticsJson.likeCount), commentCount: parseInt(statisticsJson.commentCount)}
                     items.push(taskView);
                     saveStorage('AllVideo', items)
@@ -106,6 +89,37 @@ nameCategoryFilm = (number) => {
 }
 
 var allVideos =  getAllVideo()
+
+nameCategoryFilm = (number) => {
+  if (number==102 || number==103){
+    category = "Việt Nam"
+  } else if ((number==104 || number==106)){
+    category = "Trung Quốc"
+  } else if ((number==107 || number==108)){
+    category = "Nhật Bản"
+  } else {
+    category = "Âu Mỹ"
+  }
+  return category;
+}
+
+CategoryFilm = (string) => {
+  let category =[]
+  if (string == "vietnam"){
+    category = [102, 103]
+  } else if (string == "donghua"){
+    category = [104, 106]
+  } else if (string == "anime"){
+    category = [107, 108]
+  } else if (string == "cartoon"){
+    category = [109, 110]
+  }
+  return category;
+}
+
+
+
+
 
 
 getFilmBestView = (number) =>{
@@ -164,6 +178,7 @@ filmView = () => {
   showFilmWatching();
   showWatchingFilm();
   showFilmViewed() ;
+  showFilmLove();
 }
 
 

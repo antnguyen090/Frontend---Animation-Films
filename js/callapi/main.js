@@ -8,8 +8,9 @@ $( document ).ready(function() {
     showArticleDetail();
     showArticleNew();
     showArticleLove();
+    showBoxNewsSlider();
+    showPlaylistCategory();
     changeTitle();
-    showFilmLove();
     setTimeout(filmView, 500)
     showSearch();
 });

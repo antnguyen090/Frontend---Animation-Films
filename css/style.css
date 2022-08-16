@@ -36,7 +36,6 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0;
 	color: #111111;
 	font-weight: 400;
 	font-family: "Mulish", sans-serif;
@@ -339,6 +338,7 @@ ol {
     position: fixed;
     z-index: 9999;
     width: 100%;
+	top: 0
 }
 
 .header__logo {
@@ -894,7 +894,7 @@ ol {
 .product__sidebar__view__item h5 {
     position: absolute;
     left: 0;
-    bottom: 0px;
+    bottom: -8px;
     width: 100%;
     padding: 0px 10px 0 10px;
     background-color: rgba(1, 47, 57, .6);
@@ -910,7 +910,7 @@ ol {
 
 
 .product__sidebar__comment {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 .product__sidebar__comment__item {
@@ -1459,7 +1459,7 @@ ol {
 -----------------------*/
 
 .normal-breadcrumb {
-	height: 300px;
+	height: 160px;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -1479,7 +1479,7 @@ ol {
 	margin-bottom: 22px;
 }
 
-.normal__breadcrumb__text p {
+.normal__breadcrumb__text h6 {
 	color: #ffffff;
 	font-size: 24px;
 	margin-bottom: 0;
@@ -1612,8 +1612,8 @@ ol {
   Blog Details
 -----------------------*/
 .loveItems{
-	float: right;
-	padding: 10px;
+    float: right;
+    padding: 3px 6px;
 }
 
 .loveItemsMovie{
@@ -2010,11 +2010,17 @@ ol {
 	.hero {
 		overflow: hidden;
 	}
+	.normal-breadcrumb {
+		margin-top: 53px;
+	}
 }
 
 @media only screen and (min-width: 1200px) {
 	.container {
 		max-width: 1170px;
+	}
+	.normal-breadcrumb {
+		margin-top: 53px;
 	}
 }
 
@@ -2033,6 +2039,9 @@ ol {
 	}
 	.blog__item__text {
 		padding: 0 50px;
+	}
+	.normal-breadcrumb {
+		margin-top: 53px;
 	}
 }
 
@@ -2412,3 +2421,49 @@ a.link{
 	float: left
 }
 /*all page	*/
+
+/*slder news*/
+
+.newsBox .b-0 {
+    bottom: 0;
+}
+.newsBox .bg-shadow {
+    background: rgba(76, 76, 76, 0);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(179, 171, 171, 0)), color-stop(49%, rgba(48, 48, 48, 0.37)), color-stop(100%, rgba(19, 19, 19, 0.8)));
+    background: linear-gradient(to bottom, rgba(179, 171, 171, 0) 0%, rgba(48, 48, 48, 0.71) 49%, rgba(19, 19, 19, 0.8) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0 );
+}
+.newsBox .top-indicator {
+    right: 0;
+    top: 1rem;
+    bottom: inherit;
+    left: inherit;
+    margin-right: 1rem;
+}
+.newsBox .overflow {
+    position: relative;
+    overflow: hidden;
+}
+.newsBox .zoom img {
+    transition: all 0.2s linear;
+}
+.newsBox .zoom:hover img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.newsBox img.sliderImage{
+	height: 244px
+}
+
+.newsBox img.itemImage{
+	height: 120px
+}
+
+.newsBox .h3 {
+	font-size: 20px
+}
+
+.newsBox .h5 {
+	font-size: 11px
+}

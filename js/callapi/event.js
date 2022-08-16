@@ -57,6 +57,7 @@ funcLoveFilm = (id) => {
     showFilmViewed()
     showBestLike()
     showNewDate()
+    showPlaylistCategory();
 }
 
 funcRemoveLoveFilm = (id) => {
@@ -65,12 +66,14 @@ funcRemoveLoveFilm = (id) => {
         return e.id != id; 
    });
    saveStorage('VIDEO_LOVE',items);
-   showFilmWatching()
-   showFilmLove()
-   showBestTrend()
+   showFilmWatching();
+   showFilmLove();
+   showBestTrend();
    showFilmViewed();
-   showBestLike()
-   showNewDate()
+   showBestLike();
+   showNewDate();
+   showPlaylistCategory();
+
 }
 
 funcRemoveViewedFilm = (id) => {
@@ -80,8 +83,8 @@ funcRemoveViewedFilm = (id) => {
         return e.id != id; 
    });
    saveStorage('VIDEO_VIEWED',items);
-   showFilmWatching()
-   showFilmLove()
+   showFilmWatching();
+   showFilmLove();
    showBestTrend()
    showFilmViewed();
    showBestLike();
