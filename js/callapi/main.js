@@ -12,7 +12,8 @@ $( document ).ready(function() {
     showPlaylistCategory();
     changeTitle();
     setTimeout(filmView, 500)
-    showSearch();
+    showSearchFilm();
+    showSearchNews();
 });
 
 
