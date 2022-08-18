@@ -354,6 +354,7 @@ showBestTrend = () => {
     let items = getFilmBestTrend(6);
     let xhtm = "";
      $.each(items,  function (key, val) {
+        if (key > 2) return false;
         let heartVideo = listItems('VIDEO_LOVE')
         let statusHeart = `<a href="javascript:void(0);" class="link" onClick="funcLoveFilm('${val.id}');"><span class="badge badge-danger font-weight-bold loveItems" data-type="movie"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i>Thích</span></a>`
         let idVideo = val.id
@@ -363,10 +364,18 @@ showBestTrend = () => {
                 statusHeart = `<a href="javascript:void(0);" class="link" onClick="funcRemoveLoveFilm('${val.id}');"><span class="badge badge-danger font-weight-bold loveItems bg-white text-primary" data-type="news"><i class="fa-solid fa-heart text-primary" style="margin-right: 4px;"></i>Bỏ Thích</span></a>`
                 }
             })
-     xhtm +=`<div class="col-lg-6 col-md-6 col-sm-6"  style="position: relative">
+        let col = "col-lg-6 col-md-6 col-sm-6"
+        let position = "position: absolute; top:120px ; right: 10px; z-index: 999;"
+        let bgPosition = "background-position: 0 -35px;"
+        if (key == 0) {
+             col = "col-lg-12 col-md-12 col-sm-12";
+            position = "position: absolute; top:315px ; right: 10px; z-index: 999;"
+            bgPosition = "background-position: 0 -70px;"
+        }
+     xhtm +=`<div class="${col}"  style="position: relative">
                 <div class="product__item" style="position: relative" >
                         <a href="anime-watching.html?watching=${val.id}">
-                                <div class="product__item__pic set-bg" style="background-image: url('${val.thumbnail}'); background-position: 0 -35px;">
+                                <div class="product__item__pic set-bg" style="background-image: url('${val.thumbnail}'); ${bgPosition}">
                                     <div class="category"><span class="badge badge-primary font-weight-bold loveItemsMovie" style="background-color: #035364;"data-type="movie">${idPublic}</span></div>
                                     <div class="view"><i class="fa fa-eye"></i> `+val.viewCount.toLocaleString()+`</div>
                                 </div>
@@ -374,7 +383,7 @@ showBestTrend = () => {
                                     <h5>${val.title}</h5>
                                 </div>
                          </a>
-                         <div class="love" style="position: absolute; top:120px ; right: 10px; z-index: 999; ">${statusHeart} </div>
+                         <div class="love" style="${position}">${statusHeart} </div>
                 </div>
 
             </div>`
@@ -632,6 +641,9 @@ showSearchNews = () => {
                  elmNewsSearch.html(xhtm);
         return false;
     } else {
+        let txt = paramSearch.replaceAll("+"," ")
+        elmKeyWordShow.text(`theo từ khóa: ${txt}`)
+        $("input#search-input").val(txt)
         let arrSearch = paramSearch.split("+")
         $.each(arrSearch, function (index, value) {
                     let string = removeAccents(value).toLowerCase()
@@ -663,7 +675,9 @@ showSearchNews = () => {
                          } else {
                          $.each(searchValue, function (index, val) {
                             let day = val.publish_date.split(" ")[0].split("-")
-                            let title = val.title.replace(/'/g, '').replace(/"/g, '');   
+                            let title = val.title.replaceAll(/'/g, '').replaceAll(/"/g, '');
+                            let titleHightlight = highlight(val.title, string)
+                            let descriptionHightLight = highlight(val.description, string)
                             xhtm += `<div class="row text-light mb-4">
                             <div class="col-sm-4 grid-margin">
                                 <div class="position-relative">
@@ -675,14 +689,14 @@ showSearchNews = () => {
                             <div class="col-sm-8 grid-margin">
                                 <a onClick="funcArticleViewed('${val.id}','`+title+`','${val.thumb}','${val.link}');" href="blog-details.html?iddetail=${val.id}">
                                     <h5 class="mb-2 font-weight-bold text-light text-justify">
-                                    `+ val.title + `
+                                    `+ titleHightlight + `
                                     </h5>
                                 </a>
                                 <div class="fs-13 mb-3">
                                    <a href="?id=${val.category_id}"> <span class="badge badge-primary font-weight-bold mr-2">`+ val.category.name + ` </span></a><i class="fa-solid fa-clock"></i> `+ day[2]+"-"+day[1]+"-"+day[0] + `
                                 </div>
                                 <p class="mb-0 text-light font-weight-light font-italic text-justify">
-                                `+ val.description + `
+                                `+ descriptionHightLight+ `
                                 </p>
                             </div>
                         </div>`;
@@ -812,6 +826,7 @@ showPlaylistCategory = () =>{
     elmCategoryFilmName.html(xhtmlCategory)
     elmCategoryFilmNameItems.html(xhtm)
 }
+
 
 
 

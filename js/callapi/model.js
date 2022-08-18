@@ -18,6 +18,12 @@ listItems = (name) => {
     return items;
 }
 
+statusMenuTab = (local) => {
+    let items = loadStorage(local) ;
+    if(items === null) items = {status: "home"};  // 
+    return items;
+} 
+
 
 deleteItem = (id) => {
   let items = listItems();  // [ {id,name,level}, {id,name,level}, {id,name,level}]
@@ -179,6 +185,45 @@ filmView = () => {
   showWatchingFilm();
   showFilmViewed() ;
   showFilmLove();
+}
+
+showSeachTabMenu = (local) =>{
+  let status = statusMenuTab(local) 
+  if ( status.status == "home") {
+    $(".searchTabMenu #nav-home-tab").addClass("active")
+    $(".searchTabMenu #nav-home").addClass("show active")
+  } else if(status.status == "profile") {
+    $(".searchTabMenu #nav-profile-tab").addClass("active")
+    $(".searchTabMenu #nav-profile").addClass("show active")
+  }
+}
+
+showLoveTabMenu = (local) =>{
+  let status = statusMenuTab(local) 
+  if ( status.status == "home") {
+    $(".loveTabMenu #nav-home-tab").addClass("active")
+    $(".loveTabMenu #nav-home").addClass("show active")
+  } else if(status.status == "profile") {
+    $(".loveTabMenu #nav-profile-tab").addClass("active")
+    $(".loveTabMenu #nav-profile").addClass("show active")
+  }
+}
+
+
+
+funcStatusMenuTabShow = (local) => {
+  let status = statusMenuTab(local) 
+  console.log(status)
+  switch (local){
+  case "STATUS-MENU-TAB-SEARCH": {
+    showSeachTabMenu("STATUS-MENU-TAB-SEARCH");
+    break;
+  }
+  case "STATUS-MENU-TAB-LOVE":{
+    showLoveTabMenu("STATUS-MENU-TAB-LOVE");
+    break;
+  }
+}
 }
 
 
