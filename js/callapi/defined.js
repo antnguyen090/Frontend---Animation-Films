@@ -1,4 +1,4 @@
-const API_PREFIX = 'http://apiforlearning.zendvn.com/api/';
+const API_PREFIX = 'https://apiforlearning.zendvn.com/api/';
 let elmAreaCategoryNews = $("ul#api-area-category-news");
 let elmAreaNewsItem = $("#news-items");
 let elmAreaGoldPrice = $("#tableGoldPriceImport");
