@@ -646,11 +646,12 @@ showSearchNews = () => {
         $("input#search-input").val(txt)
         let arrSearch = paramSearch.split("+")
         $.each(arrSearch, function (index, value) {
-                    let string = removeAccents(value).toLowerCase()
+                    let string = value.toLowerCase()
                     
                     var newArr = $.getJSON( API_PREFIX + `articles/search?q=${string}&offset=0&limit=10&sort_by=id&sort_dir=desc`, function(data) {
                         console.log( "success" );
                         searchValue.push(...data)
+                        // }
                       })
                         .done(function() {
                           console.log( "second success" );
@@ -667,6 +668,7 @@ showSearchNews = () => {
                       // Set another completion function for the request above
                       newArr.always(function(data) {
                         console.log( "second complete" );
+                        
                         if (searchValue.length == 0 ) {
                             xhtm =`<p class="ml-4 text-light font-weight-light font-italic text-center">
                             Không có kết quả phù hợp!
@@ -674,35 +676,41 @@ showSearchNews = () => {
                                  elmNewsSearch.html(xhtm);
                          } else {
                          $.each(searchValue, function (index, val) {
-                            let day = val.publish_date.split(" ")[0].split("-")
-                            let title = val.title.replaceAll(/'/g, '').replaceAll(/"/g, '');
-                            let titleHightlight = highlight(val.title, string)
-                            let descriptionHightLight = highlight(val.description, string)
-                            xhtm += `<div class="row text-light mb-4">
-                            <div class="col-sm-4 grid-margin">
-                                <div class="position-relative">
-                                    <div class="rotate-img">
-                                    <a onClick="funcArticleViewed('${val.id}','`+title+`','${val.thumb}','${val.link}');" href="blog-details.html?iddetail=${val.id}"><img src="` + val.thumb + `" alt="thumb" class="img-fluid"></a>
+                            let title= val.title.toLowerCase()
+                            let description = val.description.toLowerCase()
+                            console.log(title)
+                            console.log(description)
+                            console.log(string)
+
+                            if (title.includes(" "+string+ " ") || description.includes(" "+string+ " ")){
+                                    let day = val.publish_date.split(" ")[0].split("-")
+                                    let title = val.title.replaceAll(/'/g, '').replaceAll(/"/g, '');
+                                    let titleHightlight = highlight(val.title, string)
+                                    let descriptionHightLight = highlight(val.description, string)
+                                    xhtm += `<div class="row text-light mb-4">
+                                    <div class="col-sm-4 grid-margin">
+                                        <div class="position-relative">
+                                            <div class="rotate-img">
+                                            <a onClick="funcArticleViewed('${val.id}','`+title+`','${val.thumb}','${val.link}');" href="blog-details.html?iddetail=${val.id}"><img src="` + val.thumb + `" alt="thumb" class="img-fluid"></a>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-8 grid-margin">
-                                <a onClick="funcArticleViewed('${val.id}','`+title+`','${val.thumb}','${val.link}');" href="blog-details.html?iddetail=${val.id}">
-                                    <h5 class="mb-2 font-weight-bold text-light text-justify">
-                                    `+ titleHightlight + `
-                                    </h5>
-                                </a>
-                                <div class="fs-13 mb-3">
-                                   <a href="?id=${val.category_id}"> <span class="badge badge-primary font-weight-bold mr-2">`+ val.category.name + ` </span></a><i class="fa-solid fa-clock"></i> `+ day[2]+"-"+day[1]+"-"+day[0] + `
-                                </div>
-                                <p class="mb-0 text-light font-weight-light font-italic text-justify">
-                                `+ descriptionHightLight+ `
-                                </p>
-                            </div>
-                        </div>`;
+                                    <div class="col-sm-8 grid-margin">
+                                        <a onClick="funcArticleViewed('${val.id}','`+title+`','${val.thumb}','${val.link}');" href="blog-details.html?iddetail=${val.id}">
+                                            <h5 class="mb-2 font-weight-bold text-light text-justify">
+                                            `+ titleHightlight + `
+                                            </h5>
+                                        </a>
+                                        <div class="fs-13 mb-3">
+                                        <a href="?id=${val.category_id}"> <span class="badge badge-primary font-weight-bold mr-2">`+ val.category.name + ` </span></a><i class="fa-solid fa-clock"></i> `+ day[2]+"-"+day[1]+"-"+day[0] + `
+                                        </div>
+                                        <p class="mb-0 text-light font-weight-light font-italic text-justify">
+                                        `+ descriptionHightLight+ `
+                                        </p>
+                                    </div>
+                                </div>`;
                                 elmNewsSearch.html(xhtm);
-                            if (index >18) return false;
-                         })}
+                         }})}
                       });
 
          })
