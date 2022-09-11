@@ -11,12 +11,11 @@ $( document ).ready(function() {
     showBoxNewsSlider();
     showPlaylistCategory();
     changeTitle();
-    setTimeout(filmView, 500)
     showSearchFilm();
     showSearchNews();
     funcStatusMenuTabShow('STATUS-MENU-TAB-SEARCH');
     funcStatusMenuTabShow('STATUS-MENU-TAB-LOVE');
-
+    setTimeout(filmView, 1200)
 });
 
 
