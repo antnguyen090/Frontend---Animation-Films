@@ -292,7 +292,6 @@ showFilmLove = () => {
     } else {
     $.each(items, function (key, val) {
             let allVideos = getAllVideo()
-            console.log(allVideos)
             let value = allVideos.filter((o)=> o.id == val.id)[0]
             let statusHeart = `<a href="javascript:void(0);" class="link" onClick="funcRemoveLoveFilm('${value.id}');"><span class="badge badge-danger font-weight-bold loveItems bg-white text-primary" data-type="news"><i class="fa-solid fa-heart text-primary" style="margin-right: 4px;"></i>Bỏ Thích</span></a>`
             xhtml +=`
@@ -308,7 +307,6 @@ showFilmLove = () => {
     elmFilmLove.html(xhtml);
 }
 
-
 showFilmInCategory = () => {
     let paramCategory = $.urlParam('category')
     let filmsList = filmsInCategoryList(paramCategory);
@@ -318,11 +316,9 @@ showFilmInCategory = () => {
     if(paramCategory != null){
     $.getJSON(API_PREFIX + "playlists?offset=0&sortBy=id&sort_dir=asc&type=film-cartoon", function (data) {
         let xhtmlContent = '';
-        console.log(funcNameCategory(paramCategory))
         $.each(data, function (key, val) {
             if(filmsList.indexOf(val.id) !== -1)  
             {  
-                console.log(val.id)
                 xhtmlContent += ``;
             }   
         });
@@ -584,6 +580,7 @@ showFilmWatching = () => {
 
  showSearchFilm = () => {
     let paramSearch = $.urlParam('search')
+    let arrSearchObj =  []
     let xhtm ="";
     let searchValue = [];
     if ( paramSearch == 0 || paramSearch == null) {
@@ -599,6 +596,8 @@ showFilmWatching = () => {
             let allVideos = getAllVideo()
             let newArr = allVideos.filter((obj) => removeAccents(obj.title).toLowerCase().search(" "+string+" ") >0)
             searchValue.push(...newArr)
+            arrSearchObj.push(string)
+
          })
          if (searchValue.length == 0 ) {
             xhtm =`<p class="ml-4 text-light font-weight-light font-italic text-center">
@@ -606,8 +605,13 @@ showFilmWatching = () => {
                  </p>`;
             elmFilmSearch.html(xhtm);
          } else {
-         $.each(searchValue, function (index, val) {
-            let idPublic = nameCategoryFilm(val.playlist_id)  
+         $.each(searchValue,async function (index, val) {
+            let title = val.title
+            let idPublic = nameCategoryFilm(val.playlist_id)
+            let titleHightlight = ""
+            let data = await $.each(arrSearchObj,async function (index, value) {
+                titleHightlight = highlight(title, value)
+            })
             xhtm +=`<div class="col-lg-6 col-md-6 col-sm-6"  style="position: relative">
             <div class="product__item" style="position: relative" >
                     <a href="anime-watching.html?watching=${val.id}">
@@ -616,7 +620,7 @@ showFilmWatching = () => {
                                 <div class="view"><i class="fa fa-eye"></i> `+val.viewCount.toLocaleString()+`</div>
                             </div>
                             <div class="product__item__text">
-                                <h5>${val.title}</h5>
+                                <h5>${titleHightlight}</h5>
                             </div>
                      </a>
             </div>
@@ -649,25 +653,20 @@ showSearchNews = () => {
                     let string = value.toLowerCase()
                     
                     var newArr = $.getJSON( API_PREFIX + `articles/search?q=${string}&offset=0&limit=10&sort_by=id&sort_dir=desc`, function(data) {
-                        console.log( "success" );
                         searchValue.push(...data)
                         // }
                       })
                         .done(function() {
-                          console.log( "second success" );
                         })
                         .fail(function() {
-                          console.log( "error" );
                         })
                         .always(function() {
-                          console.log( "complete" );
                         });
                        
                       // Perform other work here ...
                        
                       // Set another completion function for the request above
                       newArr.always(function(data) {
-                        console.log( "second complete" );
                         
                         if (searchValue.length == 0 ) {
                             xhtm =`<p class="ml-4 text-light font-weight-light font-italic text-center">
@@ -678,10 +677,6 @@ showSearchNews = () => {
                          $.each(searchValue, function (index, val) {
                             let title= val.title.toLowerCase()
                             let description = val.description.toLowerCase()
-                            console.log(title)
-                            console.log(description)
-                            console.log(string)
-
                             if (title.includes(" "+string+ " ") || description.includes(" "+string+ " ")){
                                     let day = val.publish_date.split(" ")[0].split("-")
                                     let title = val.title.replaceAll(/'/g, '').replaceAll(/"/g, '');

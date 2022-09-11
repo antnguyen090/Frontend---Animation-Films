@@ -213,7 +213,6 @@ showLoveTabMenu = (local) =>{
 
 funcStatusMenuTabShow = (local) => {
   let status = statusMenuTab(local) 
-  console.log(status)
   switch (local){
   case "STATUS-MENU-TAB-SEARCH": {
     showSeachTabMenu("STATUS-MENU-TAB-SEARCH");

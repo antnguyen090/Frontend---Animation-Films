@@ -77,7 +77,6 @@ funcRemoveLoveFilm = (id) => {
 }
 
 funcRemoveViewedFilm = (id) => {
-    console.log("test")
     let items = listItems('VIDEO_VIEWED');
     items = $.grep(items, function (e) {
         return e.id != id;

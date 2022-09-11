@@ -1,0 +1,44 @@
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header__logo">
+                    <a href="./index.html">
+                        <img src="img/logo.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="header__nav">
+                    <nav class="header__menu mobile-menu">
+                        <ul class="row row-cols-5">
+                            <li class="col "><a href="./index.html">Trang Chủ</a></li>
+                            <li class="col active">
+                                <a href="#" style="pointer-events: none; cursor: default;">Thể Loại</a>
+                                <ul class="dropdown">
+                                    <li><a href="./categories.html?category=vietnam">Hoạt Hình Việt Nam</a></li>
+                                    <li><a href="./categories.html?category=donghua">Hoạt Hình Trung Quốc</a></li>
+                                    <li><a href="./categories.html?category=anime">Hoạt Hình Nhật Bản</a></li>
+                                    <li><a href="./categories.html?category=cartoon">Hoạt Hình Âu Mỹ</a></li>
+                                </ul>
+                            </li>
+                            <li class="col"><a href="./love.html">Yêu Thích</a></li>
+                            <li class="col" id="api-watching-film"><a href="./anime-watching.html?watching=2230">Đang Xem</a></li>
+                            <li class="col">
+                                <a href="./blog.html">Tin Tức</a>
+                                <ul class="dropdown" id="api-area-category-news">
+                                    <!--callapi-->
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-lg-2 search-model">
+                <form action="./search.html" method="get" class="search-model-form" id="form_search">
+                           <input type="text" name="search" id="search-input" placeholder="Tìm kiếm.....">
+                           <button type="submit" id="search-submit"><span class="icon_search"></span></button>
+                </form>
+           </div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>

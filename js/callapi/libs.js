@@ -37,3 +37,5 @@ function preg_quote (str, delimiter) {
 function highlight(str, search) {
     return str.replace(new RegExp("(" + preg_quote(search) + ")", 'gi'), '<span class="bg-warning p-1">$1</span>');
 }
+
+
