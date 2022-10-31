@@ -176,7 +176,10 @@ addFilmLove = (id) => {
   saveStorage('VIDEO_LOVE',items);
 }
 
-filmView = () => {
+filmView = async () => {
+  await setTimeout(() => {
+    
+  }, 2000)
   showBestView();
   showBestTrend();
   showNewDate();
